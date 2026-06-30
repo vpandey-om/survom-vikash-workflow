@@ -4,7 +4,7 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 2,
+  "step_count": 3,
   "steps": [
     {
       "aliases": [
@@ -53,6 +53,57 @@
         }
       ],
       "process_name": "SURVOM_COMMON_QC_FASTQC",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "multiqc"
+      ],
+      "category": "qc",
+      "checksums": {
+        "implementation_sha256": "fa2a629c375f0b09df7649e3b3c9f7f3b0fc7cefcd16b3f43efad01407b86c2d",
+        "metadata_sha256": "e5a30b6b860e0e471fbc246d4a8f08d49c67b56d0b29a0f2640a0f03e56436e4"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Run MultiQC on a declared FastQC report directory and emit the native MultiQC HTML report and data directory.",
+      "display_name": "MultiQC",
+      "domain": "common",
+      "id": "common.qc.multiqc",
+      "implementation_path": "bin/common__qc__multiqc.py",
+      "inputs": [
+        {
+          "description": "Directory containing FastQC HTML and/or ZIP reports to aggregate.",
+          "name": "fastqc_reports_dir",
+          "required": true,
+          "type": "directory"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/qc/multiqc/meta.yml",
+      "module_path": "modules/local/common/qc/multiqc",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Native MultiQC HTML report.",
+          "name": "multiqc_report",
+          "type": "html"
+        },
+        {
+          "description": "Native MultiQC data directory.",
+          "name": "multiqc_data",
+          "type": "directory"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_QC_MULTIQC",
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"
