@@ -1,0 +1,33 @@
+{
+  "aliases": [
+    "simple-de-test"
+  ],
+  "category": "de",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Fixture-only transcriptomics differential expression step.",
+  "display_name": "Simple DE test",
+  "domain": "transcriptomics",
+  "id": "transcriptomics.de.simple_de_test",
+  "implementation_path": "bin/transcriptomics__de__simple_de_test.py",
+  "inputs": [],
+  "language": "python",
+  "module_path": "modules/local/transcriptomics/de/simple_de_test",
+  "omics": [
+    "transcriptomics"
+  ],
+  "outputs": [],
+  "owners": [],
+  "process_name": "SURVOM_TRANSCRIPTOMICS_DE_SIMPLE_DE_TEST",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

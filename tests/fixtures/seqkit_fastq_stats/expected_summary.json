@@ -1,0 +1,44 @@
+{
+  "files": [
+    {
+      "avg_len": 12,
+      "avg_qual": 39.47,
+      "format": "FASTQ",
+      "gc_percent": 50,
+      "max_len": 12,
+      "min_len": 12,
+      "n50": 12,
+      "num_seqs": 2,
+      "q1_len": 12,
+      "q20_percent": 100,
+      "q2_len": 12,
+      "q30_percent": 100,
+      "q3_len": 12,
+      "source_file": "/data/tiny_R1.fastq.gz",
+      "sum_gap": 0,
+      "sum_len": 24,
+      "type": "DNA"
+    },
+    {
+      "avg_len": 12,
+      "avg_qual": 39.25,
+      "format": "FASTQ",
+      "gc_percent": 50,
+      "max_len": 12,
+      "min_len": 12,
+      "n50": 12,
+      "num_seqs": 2,
+      "q1_len": 12,
+      "q20_percent": 100,
+      "q2_len": 12,
+      "q30_percent": 100,
+      "q3_len": 12,
+      "source_file": "/data/tiny_R2.fastq.gz",
+      "sum_gap": 0,
+      "sum_len": 24,
+      "type": "DNA"
+    }
+  ],
+  "generated_by": "bin/common__qc__seqkit_fastq_stats.py",
+  "schema_version": 1
+}

@@ -1,0 +1,15 @@
+schema_version: 1
+tool: seqkit
+version: "2.10.1"
+immutable_upstream_build_reference: quay.io/biocontainers/seqkit:2.10.1--he881be0_0@sha256:fbc9b1d536fab653a3f54cb92c13ced505d994e4811918a44315fd4123fa492b
+local_development_image:
+  name: survom/seqkit:2.10.1-dev
+  purpose: local fixture generation and smoke-test validation only
+survom_controlled_registry_digest:
+  reference: null
+  owner_approval_status: pending
+production_container_reference: null
+notes:
+  - Atomic step metadata keeps container null until an approved SurvOm-controlled immutable registry digest exists.
+  - The local development image is not a production container reference.
+  - Do not use latest tags.

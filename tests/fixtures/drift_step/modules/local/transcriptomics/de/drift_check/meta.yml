@@ -1,0 +1,31 @@
+{
+  "aliases": [],
+  "category": "de",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Fixture used to verify checksum drift protection.",
+  "display_name": "Drift check",
+  "domain": "transcriptomics",
+  "id": "transcriptomics.de.drift_check",
+  "implementation_path": "bin/transcriptomics__de__drift_check.py",
+  "inputs": [],
+  "language": "python",
+  "module_path": "modules/local/transcriptomics/de/drift_check",
+  "omics": [
+    "transcriptomics"
+  ],
+  "outputs": [],
+  "owners": [],
+  "process_name": "SURVOM_TRANSCRIPTOMICS_DE_DRIFT_CHECK",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

@@ -1,0 +1,33 @@
+{
+  "aliases": [
+    "read-qc-b"
+  ],
+  "category": "qc",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Second duplicate fixture.",
+  "display_name": "Read QC B",
+  "domain": "transcriptomics",
+  "id": "transcriptomics.qc.read_qc",
+  "implementation_path": "bin/transcriptomics__qc__read_qc.py",
+  "inputs": [],
+  "language": "python",
+  "module_path": "modules/local/transcriptomics/qc/read_qc",
+  "omics": [
+    "transcriptomics"
+  ],
+  "outputs": [],
+  "owners": [],
+  "process_name": "SURVOM_TRANSCRIPTOMICS_QC_READ_QC",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

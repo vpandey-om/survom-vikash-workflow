@@ -1,0 +1,53 @@
+__pycache__/
+*.py[cod]
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local Docker / container exports
+*.tar
+*.tar.gz
+*.oci
+image-archives/
+
+# Local workflow outputs and temporary files
+/tmp/
+results/
+work/
+.nextflow/
+.nextflow.log*
+.nextflow.cache/
+
+# Local runtime data and logs
+logs/
+docker-data/
+survom-storage/
+*.log
+
+# External sequencing / omics data — never commit
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.cram
+*.sam
+*.vcf
+*.vcf.gz
+*.bcf
+*.bed
+*.gff
+*.gtf
+*.fasta
+*.fa
+*.fna
+*.fastq.zst
+
+# Keep tiny synthetic test fixtures tracked
+!tests/
+!tests/fixtures/
+!tests/fixtures/**/*.fastq
+!tests/fixtures/**/*.fastq.gz
+!tests/fixtures/**/*.fq
+!tests/fixtures/**/*.fq.gz

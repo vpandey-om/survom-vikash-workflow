@@ -1,0 +1,3 @@
+source_file	format	type	num_seqs	sum_len	min_len	avg_len	max_len	gc_percent	q20_percent	q30_percent	avg_qual
+/data/tiny_R1.fastq.gz	FASTQ	DNA	2	24	12	12	12	50	100	100	39.47
+/data/tiny_R2.fastq.gz	FASTQ	DNA	2	24	12	12	12	50	100	100	39.25

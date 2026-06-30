@@ -1,0 +1,33 @@
+schema_version: 1
+metadata_format: json-compatible-content-in-meta-yml
+metadata_contract: docs/schemas/atomic-step-meta.schema.json
+manifest_contract: docs/schemas/execution-manifest.schema.json
+manifest_validation_tooling: later_owner_approved_task
+domains:
+  - common
+  - genomics
+  - transcriptomics
+  - proteomics
+  - metabolomics
+  - multiomics
+omics:
+  - genomics
+  - transcriptomics
+  - proteomics
+  - metabolomics
+  - multiomics
+category_rule: lowercase_snake_case
+step_id_format: domain.category.step_name
+process_name_format: SURVOM_<DOMAIN>_<CATEGORY>_<STEP_NAME>
+module_path_format: modules/local/<domain>/<category>/<step_name>
+implementation_path_format: bin/<domain>__<category>__<step_name>.py_or_.R
+status_values:
+  - experimental
+  - active
+  - deprecated
+validation_tiers:
+  - unit_tested
+  - golden_dataset
+  - published_concordance
+container_rule: digest_reference_only
+checksum_drift_note: local_registry_comparison_is_supported_now_merge_base_comparison_required_later_in_ci

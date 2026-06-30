@@ -1,0 +1,62 @@
+{
+  "generated_by": "tools/sync_registry.py",
+  "schema_version": 1,
+  "source": {
+    "metadata_root": "modules/local"
+  },
+  "step_count": 1,
+  "steps": [
+    {
+      "aliases": [
+        "fastq-stats",
+        "seqkit-fastq-stats"
+      ],
+      "category": "qc",
+      "checksums": {
+        "implementation_sha256": "86383931319595b489c7bd05a6d9b5e5607c2be5570b33e6bc4cd3f24d16a20c",
+        "metadata_sha256": "b225b53cfe8fff63507e065f44a7a72fd5bdec201b508baf2007ec53922b1966"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Normalize SeqKit FASTQ statistics into deterministic JSON and TSV summaries.",
+      "display_name": "SeqKit FASTQ stats",
+      "domain": "common",
+      "id": "common.qc.seqkit_fastq_stats",
+      "implementation_path": "bin/common__qc__seqkit_fastq_stats.py",
+      "inputs": [
+        {
+          "description": "SeqKit stats --all --tabular output.",
+          "name": "seqkit_tsv",
+          "required": true,
+          "type": "tsv"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/qc/seqkit_fastq_stats/meta.yml",
+      "module_path": "modules/local/common/qc/seqkit_fastq_stats",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Deterministic normalized JSON summary.",
+          "name": "json_summary",
+          "type": "json"
+        },
+        {
+          "description": "Deterministic normalized TSV summary.",
+          "name": "tsv_summary",
+          "type": "tsv"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_QC_SEQKIT_FASTQ_STATS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    }
+  ]
+}

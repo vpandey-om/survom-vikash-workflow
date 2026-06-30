@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://survom.local/schemas/atomic-step-meta.schema.json",
+  "title": "SurvOm atomic step metadata",
+  "description": "Authoritative contract for atomic step meta.yml files. Until a pinned YAML parser is approved, meta.yml content must be JSON-compatible and parseable as JSON.",
+  "x-survom-metadata-format": "json-compatible-content-in-meta-yml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "display_name",
+    "description",
+    "domain",
+    "category",
+    "omics",
+    "status",
+    "version",
+    "language",
+    "implementation_path",
+    "module_path",
+    "process_name",
+    "container",
+    "inputs",
+    "outputs",
+    "owners",
+    "reviewers",
+    "validation",
+    "aliases",
+    "deprecation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^(common|genomics|transcriptomics|proteomics|metabolomics|multiomics)\\.[a-z0-9_]+\\.[a-z0-9_]+$"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain": {
+      "enum": [
+        "common",
+        "genomics",
+        "transcriptomics",
+        "proteomics",
+        "metabolomics",
+        "multiomics"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "omics": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "genomics",
+          "transcriptomics",
+          "proteomics",
+          "metabolomics",
+          "multiomics"
+        ]
+      }
+    },
+    "status": {
+      "enum": [
+        "experimental",
+        "active",
+        "deprecated"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "language": {
+      "enum": [
+        "python",
+        "r"
+      ]
+    },
+    "implementation_path": {
+      "type": "string",
+      "pattern": "^bin/[a-z0-9_]+__[a-z0-9_]+__[a-z0-9_]+\\.(py|R)$"
+    },
+    "module_path": {
+      "type": "string",
+      "pattern": "^modules/local/[a-z0-9_]+/[a-z0-9_]+/[a-z0-9_]+$"
+    },
+    "process_name": {
+      "type": "string",
+      "pattern": "^SURVOM_[A-Z0-9_]+_[A-Z0-9_]+_[A-Z0-9_]+$"
+    },
+    "container": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^.+@sha256:[0-9a-f]{64}$"
+    },
+    "inputs": {
+      "type": "array"
+    },
+    "outputs": {
+      "type": "array"
+    },
+    "owners": {
+      "type": "array"
+    },
+    "reviewers": {
+      "type": "array"
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tier",
+        "evidence"
+      ],
+      "properties": {
+        "tier": {
+          "enum": [
+            "unit_tested",
+            "golden_dataset",
+            "published_concordance"
+          ]
+        },
+        "evidence": {
+          "type": "array"
+        }
+      }
+    },
+    "aliases": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9_.-]+$"
+      }
+    },
+    "deprecation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deprecated_by",
+        "reason"
+      ],
+      "properties": {
+        "deprecated_by": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

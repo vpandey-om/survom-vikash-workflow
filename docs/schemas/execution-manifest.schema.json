@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://survom.local/schemas/execution-manifest.schema.json",
+  "title": "SurvOm reviewable execution manifest",
+  "description": "Authoritative contract for future reviewable execution manifests. Manifest validation tooling is intentionally deferred to a later owner-approved task.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "registry",
+    "selected_steps",
+    "approval",
+    "pipeline_request",
+    "runtime_llm_modification_occurred"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "manifest_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "source",
+        "generated_checksum"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generated_checksum": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "selected_steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "version",
+          "metadata_sha256",
+          "implementation_sha256",
+          "status",
+          "validation_tier",
+          "inputs",
+          "outputs"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "metadata_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "implementation_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "status": {
+            "enum": [
+              "experimental",
+              "active",
+              "deprecated"
+            ]
+          },
+          "validation_tier": {
+            "enum": [
+              "unit_tested",
+              "golden_dataset",
+              "published_concordance"
+            ]
+          },
+          "inputs": {
+            "type": "array"
+          },
+          "outputs": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_approved",
+        "approved_by",
+        "approved_at",
+        "evidence"
+      ],
+      "properties": {
+        "owner_approved": {
+          "const": true
+        },
+        "approved_by": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approved_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1
+        }
+      }
+    },
+    "pipeline_request": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "request_id",
+        "requested_by"
+      ],
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requested_by": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "runtime_llm_modification_occurred": {
+      "const": false
+    }
+  }
+}

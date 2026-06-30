@@ -1,0 +1,124 @@
+# Copy this file when the owner opens a task. Do not edit production code from a DRAFT task.
+task_id: ""
+title: ""
+status: "DRAFT"
+owner_approval:
+  approved_by_owner: false
+  approval_date: ""
+  approval_notes: ""
+
+scope:
+  objective: ""
+  editable_paths: []
+  read_only_paths: []
+  forbidden_paths: []
+
+rules:
+  sole_approval_authority: "owner"
+  one_approved_task_at_a_time: true
+  draft_means_plan_only: true
+  draft_allows_read_only_inspection:
+    - repository_listing
+    - git_status
+    - git_diff
+    - document_reading
+  draft_allows_edits: false
+  draft_allows_generated_files: false
+  draft_allows_execution: false
+  draft_allows_code_execution: false
+  draft_allows_validation_execution: false
+  draft_allows_status_promotion: false
+  draft_allows_validation_tier_promotion: false
+
+prohibited_actions:
+  - commit
+  - push
+  - merge
+  - reset
+  - rebase
+  - delete_branches
+  - tag
+  - run_aws_batch
+  - create_aws_resources
+  - use_customer_data
+  - promote_validation_status
+  - promote_validation_tier
+  - modify_executable_customer_pipeline_at_runtime
+  - hand_edit_generated_registry_or_index
+  - use_container_tag_latest
+
+atomic_step:
+  step_name: ""
+  registry_id: ""
+  registry_id_format: "domain.category.step_name"
+  registry_id_example: "transcriptomics.de.simple_de_test"
+  registry_id_immutable_after_first_approved_release: true
+  version: ""
+  versioning: "semver_per_atomic_step"
+  metadata_file: "meta.yml"
+  metadata_format_until_yaml_parser_approval: "json_compatible_content"
+  authoritative_metadata_contract: "docs/schemas/atomic-step-meta.schema.json"
+  filesystem_is_source_of_truth: true
+  generated_registry_hand_edit_allowed: false
+  immutable_version_and_checksum_provenance_required: true
+  checksum_drift_requires_version_change: true
+  allowed_status_values:
+    - experimental
+    - active
+    - deprecated
+  status: ""
+  status_change_requires_owner_approval: true
+  allowed_validation_tiers:
+    - unit_tested
+    - golden_dataset
+    - published_concordance
+  validation_tier: ""
+  validation_tier_is_status: false
+  validation_tier_change_requires_owner_approval: true
+  agent_may_collect_validation_evidence: true
+  agent_may_promote_validation_tier: false
+  customer_facing_execution_requires_owner_approved_eligibility: true
+  scaffold_separately: true
+  test_separately: true
+  version_separately: true
+  review_separately: true
+  container_tag_latest_allowed: false
+
+pre_scaffold_checks:
+  approved_task_status: true
+  allowed_paths: true
+  duplicate_detection: true
+  naming_collision_detection: true
+  taxonomy_fit: true
+  registry_consistency: true
+  block_on_uncertain_scientific_correctness: true
+  block_on_uncertain_taxonomy: true
+  block_on_uncertain_duplicate_intent: true
+  block_on_uncertain_validation_evidence: true
+  block_on_uncertain_customer_eligibility: true
+  structural_checks_may_be_automated: true
+  scientific_correctness_requires_owner_approval: true
+
+dynamic_workflow_assembly:
+  allowed_only_from_owner_approved_registry_steps: true
+  reviewable_manifest_required: true
+  llm_may_propose_manifest: true
+  execution_requires_fixed_owner_approved_manifest: true
+  llm_runtime_pipeline_modification_allowed: false
+  manifest_eventual_required_fields:
+    - selected_step_ids
+    - versions
+    - checksums
+    - inputs
+    - outputs
+    - validation_tier
+    - registry_source
+    - approval_or_review_evidence
+
+final_report_required_fields:
+  - changed_files
+  - tests_run
+  - version_impact
+  - validation_evidence
+  - risks
+  - git_diff_summary
