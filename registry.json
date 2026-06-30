@@ -4,8 +4,59 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 1,
+  "step_count": 2,
   "steps": [
+    {
+      "aliases": [
+        "fastqc"
+      ],
+      "category": "qc",
+      "checksums": {
+        "implementation_sha256": "cdc4e4b59d74ba94bf4eecd6b5f66c0bdab5f1483cd5753cd9b687da576cc83c",
+        "metadata_sha256": "8995ee5c3a1e36891a7a27e59275e0287c176f8a1866510d6797e6addaef62f1"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Run FastQC on declared FASTQ inputs and emit native FastQC HTML and ZIP reports.",
+      "display_name": "FastQC",
+      "domain": "common",
+      "id": "common.qc.fastqc",
+      "implementation_path": "bin/common__qc__fastqc.py",
+      "inputs": [
+        {
+          "description": "One or more FASTQ or FASTQ.GZ files.",
+          "name": "fastq_files",
+          "required": true,
+          "type": "fastq"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/qc/fastqc/meta.yml",
+      "module_path": "modules/local/common/qc/fastqc",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "FastQC HTML reports for every input.",
+          "name": "fastqc_html",
+          "type": "html"
+        },
+        {
+          "description": "FastQC ZIP reports for every input.",
+          "name": "fastqc_zip",
+          "type": "zip"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_QC_FASTQC",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
     {
       "aliases": [
         "fastq-stats",

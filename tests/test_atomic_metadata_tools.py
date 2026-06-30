@@ -231,8 +231,8 @@ class AtomicMetadataToolTests(unittest.TestCase):
             )
             self.assertEqual(result.returncode, 0, result.stderr)
             registry = json.loads(output.read_text(encoding="utf-8"))
-            self.assertEqual(registry["step_count"], 1)
-            self.assertEqual(registry["steps"][0]["id"], "common.qc.seqkit_fastq_stats")
+            self.assertEqual(registry["step_count"], len(registry["steps"]))
+            self.assertIn("common.qc.seqkit_fastq_stats", [step["id"] for step in registry["steps"]])
 
 
 if __name__ == "__main__":
