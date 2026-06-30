@@ -1,0 +1,60 @@
+{
+  "aliases": [
+    "multiqc"
+  ],
+  "category": "qc",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Run MultiQC on a declared FastQC report directory and emit the native MultiQC HTML report and data directory.",
+  "display_name": "MultiQC",
+  "domain": "common",
+  "id": "common.qc.multiqc",
+  "implementation_path": "bin/common__qc__multiqc.py",
+  "inputs": [
+    {
+      "description": "Directory containing FastQC HTML and/or ZIP reports to aggregate.",
+      "name": "fastqc_reports_dir",
+      "required": true,
+      "type": "directory"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/qc/multiqc",
+  "omics": [
+    "genomics",
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "Native MultiQC HTML report.",
+      "name": "multiqc_report",
+      "type": "html"
+    },
+    {
+      "description": "Native MultiQC data directory.",
+      "name": "multiqc_data",
+      "type": "directory"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_QC_MULTIQC",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Synthetic-fixture unit tests for MultiQC metadata validation, registry generation, native report emission, and empty input failure.",
+        "path": "tests/test_common_qc_multiqc.py",
+        "type": "unit_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

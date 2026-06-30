@@ -1,0 +1,16 @@
+schema_version: 1
+tool: multiqc
+version: "1.35"
+local_development_image:
+  name: survom/multiqc:1.35-dev
+  purpose: local synthetic-fixture validation only
+upstream_reference: multiqc/multiqc:v1.35
+upstream_digest: multiqc/multiqc@sha256:976be2094a3bc1dab7315ad03440d43aab09bf7756f84f3a92ef7ae1013e4bfd
+survom_controlled_registry_digest:
+  reference: null
+  owner_approval_status: pending
+production_container_reference: null
+notes:
+  - Atomic step metadata keeps container null until an approved SurvOm-controlled immutable registry digest exists.
+  - The local development image is not a production container reference.
+  - Do not use latest, dev, pip, uv, Conda, AWS, CI, or extra tools.
