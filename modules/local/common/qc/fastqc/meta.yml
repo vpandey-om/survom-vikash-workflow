@@ -1,0 +1,60 @@
+{
+  "aliases": [
+    "fastqc"
+  ],
+  "category": "qc",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Run FastQC on declared FASTQ inputs and emit native FastQC HTML and ZIP reports.",
+  "display_name": "FastQC",
+  "domain": "common",
+  "id": "common.qc.fastqc",
+  "implementation_path": "bin/common__qc__fastqc.py",
+  "inputs": [
+    {
+      "description": "One or more FASTQ or FASTQ.GZ files.",
+      "name": "fastq_files",
+      "required": true,
+      "type": "fastq"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/qc/fastqc",
+  "omics": [
+    "genomics",
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "FastQC HTML reports for every input.",
+      "name": "fastqc_html",
+      "type": "html"
+    },
+    {
+      "description": "FastQC ZIP reports for every input.",
+      "name": "fastqc_zip",
+      "type": "zip"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_QC_FASTQC",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Synthetic-fixture unit tests for FastQC metadata validation and registry generation.",
+        "path": "tests/test_common_qc_fastqc.py",
+        "type": "unit_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

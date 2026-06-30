@@ -1,0 +1,15 @@
+schema_version: 1
+tool: fastqc
+version: "0.12.1"
+local_development_image:
+  name: survom/fastqc:0.12.1-dev
+  purpose: local synthetic-fixture validation only
+upstream_reference: quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0
+survom_controlled_registry_digest:
+  reference: null
+  owner_approval_status: pending
+production_container_reference: null
+notes:
+  - Atomic step metadata keeps container null until an approved SurvOm-controlled immutable registry digest exists.
+  - The local development image is not a production container reference.
+  - Do not use latest tags.
