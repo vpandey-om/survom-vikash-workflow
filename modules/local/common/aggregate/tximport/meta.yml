@@ -1,0 +1,76 @@
+{
+  "aliases": [
+    "tximport"
+  ],
+  "category": "aggregate",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Aggregate Salmon quant.sf transcript estimates to deterministic gene-level count, abundance, and length TSV matrices using tximport.",
+  "display_name": "tximport",
+  "domain": "common",
+  "id": "common.aggregate.tximport",
+  "implementation_path": "bin/common__aggregate__tximport.R",
+  "inputs": [
+    {
+      "description": "Sample sheet TSV with columns sample_id and quant_sf pointing to Salmon quant.sf files for at least two samples.",
+      "name": "samples_tsv",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Transcript-to-gene mapping TSV with columns transcript_id and gene_id.",
+      "name": "tx2gene_tsv",
+      "required": true,
+      "type": "tsv"
+    }
+  ],
+  "language": "r",
+  "module_path": "modules/local/common/aggregate/tximport",
+  "omics": [
+    "genomics",
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "Gene-level counts matrix with gene_id as the first column and sample IDs as columns.",
+      "name": "gene_counts_tsv",
+      "type": "tsv"
+    },
+    {
+      "description": "Gene-level abundance matrix with gene_id as the first column and sample IDs as columns.",
+      "name": "gene_abundance_tsv",
+      "type": "tsv"
+    },
+    {
+      "description": "Gene-level effective length matrix with gene_id as the first column and sample IDs as columns.",
+      "name": "gene_lengths_tsv",
+      "type": "tsv"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_AGGREGATE_TXIMPORT",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Synthetic-fixture unit tests for tximport metadata validation, registry generation, deterministic outputs, and clear malformed-input failures.",
+        "path": "tests/test_common_aggregate_tximport.py",
+        "type": "unit_test"
+      },
+      {
+        "description": "Manual smoke test script that aggregates two Salmon quantification outputs with a chr22 tx2gene mapping.",
+        "path": "scripts/smoke_test_common_aggregate_tximport.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

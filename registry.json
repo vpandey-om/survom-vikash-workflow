@@ -4,7 +4,7 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 7,
+  "step_count": 8,
   "steps": [
     {
       "aliases": [
@@ -48,6 +48,68 @@
         }
       ],
       "process_name": "SURVOM_COMMON_AGGREGATE_SALMON_QUANTMERGE",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "tximport"
+      ],
+      "category": "aggregate",
+      "checksums": {
+        "implementation_sha256": "9f194bd75cf8151bce87e1d0966f17f4379656c807c795f247c7196e84982dbb",
+        "metadata_sha256": "c79606e896df55416e814c81eccee13eb318217ed70e339dc594daf09a4d1d35"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Aggregate Salmon quant.sf transcript estimates to deterministic gene-level count, abundance, and length TSV matrices using tximport.",
+      "display_name": "tximport",
+      "domain": "common",
+      "id": "common.aggregate.tximport",
+      "implementation_path": "bin/common__aggregate__tximport.R",
+      "inputs": [
+        {
+          "description": "Sample sheet TSV with columns sample_id and quant_sf pointing to Salmon quant.sf files for at least two samples.",
+          "name": "samples_tsv",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Transcript-to-gene mapping TSV with columns transcript_id and gene_id.",
+          "name": "tx2gene_tsv",
+          "required": true,
+          "type": "tsv"
+        }
+      ],
+      "language": "r",
+      "metadata_path": "modules/local/common/aggregate/tximport/meta.yml",
+      "module_path": "modules/local/common/aggregate/tximport",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Gene-level counts matrix with gene_id as the first column and sample IDs as columns.",
+          "name": "gene_counts_tsv",
+          "type": "tsv"
+        },
+        {
+          "description": "Gene-level abundance matrix with gene_id as the first column and sample IDs as columns.",
+          "name": "gene_abundance_tsv",
+          "type": "tsv"
+        },
+        {
+          "description": "Gene-level effective length matrix with gene_id as the first column and sample IDs as columns.",
+          "name": "gene_lengths_tsv",
+          "type": "tsv"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_AGGREGATE_TXIMPORT",
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"
