@@ -1,0 +1,17 @@
+schema_version: 1
+tool: salmon
+display_name: Salmon
+version: "1.10.3"
+local_development_image:
+  name: survom/salmon:1.10.3-dev
+  purpose: local smoke-test validation only
+upstream_reference: combinelab/salmon:1.10.3
+upstream_digest: combinelab/salmon@sha256:cefd8bb0b2ed9b07f22b5f0fc317ddda540e5b0dc00810d1ff0d92fee5d80370
+survom_controlled_registry_digest:
+  reference: null
+  owner_approval_status: pending
+production_container_reference: null
+notes:
+  - Atomic step metadata keeps container null until an approved SurvOm-controlled immutable registry digest exists.
+  - The local development image is not a production container reference.
+  - Do not use latest tags.

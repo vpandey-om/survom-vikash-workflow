@@ -1,0 +1,60 @@
+{
+  "aliases": [
+    "salmon-quantmerge"
+  ],
+  "category": "aggregate",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Merge two or more Salmon quant.sf files into a NumReads count matrix using Salmon quantmerge.",
+  "display_name": "Salmon quantmerge",
+  "domain": "common",
+  "id": "common.aggregate.salmon_quantmerge",
+  "implementation_path": "bin/common__aggregate__salmon_quantmerge.py",
+  "inputs": [
+    {
+      "description": "Two or more Salmon quant.sf files.",
+      "name": "quant_files",
+      "required": true,
+      "type": "tsv"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/aggregate/salmon_quantmerge",
+  "omics": [
+    "genomics",
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "Merged Salmon NumReads count matrix.",
+      "name": "salmon_counts_tsv",
+      "type": "tsv"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_AGGREGATE_SALMON_QUANTMERGE",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Synthetic-fixture unit tests for Salmon quantmerge metadata validation, registry generation, and restricted module command contract.",
+        "path": "tests/test_common_aggregate_salmon_quantmerge.py",
+        "type": "unit_test"
+      },
+      {
+        "description": "Manual smoke test script that merges two tiny synthetic Salmon quant.sf fixtures.",
+        "path": "scripts/smoke_test_common_aggregate_salmon_quantmerge.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}
