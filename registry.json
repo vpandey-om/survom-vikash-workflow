@@ -4,8 +4,54 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 4,
+  "step_count": 7,
   "steps": [
+    {
+      "aliases": [
+        "salmon-quantmerge"
+      ],
+      "category": "aggregate",
+      "checksums": {
+        "implementation_sha256": "fd3004278759eeb1a8157d3d2792f72c74ae304d272ffc0c71519b6b8037193a",
+        "metadata_sha256": "4fad6052f38a34598451a817a604aba3e8610988d988e0ee6e121f29fc161120"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Merge two or more Salmon quant.sf files into a NumReads count matrix using Salmon quantmerge.",
+      "display_name": "Salmon quantmerge",
+      "domain": "common",
+      "id": "common.aggregate.salmon_quantmerge",
+      "implementation_path": "bin/common__aggregate__salmon_quantmerge.py",
+      "inputs": [
+        {
+          "description": "Two or more Salmon quant.sf files.",
+          "name": "quant_files",
+          "required": true,
+          "type": "tsv"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/aggregate/salmon_quantmerge/meta.yml",
+      "module_path": "modules/local/common/aggregate/salmon_quantmerge",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Merged Salmon NumReads count matrix.",
+          "name": "salmon_counts_tsv",
+          "type": "tsv"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_AGGREGATE_SALMON_QUANTMERGE",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
     {
       "aliases": [
         "fastp"
@@ -223,6 +269,119 @@
         }
       ],
       "process_name": "SURVOM_COMMON_QC_SEQKIT_FASTQ_STATS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "salmon-quant"
+      ],
+      "category": "quant",
+      "checksums": {
+        "implementation_sha256": "6ae4de0bb9409061365392804d798df0f74b81704e261a4594277901e5c75689",
+        "metadata_sha256": "ed8d1048a37aaeb5450cb8efc12a70c75742b8a099be47356e5a09bd0116e3ed"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Run Salmon quantification against a declared Salmon index using automatic library-type detection for single-end or paired-end FASTQ input.",
+      "display_name": "Salmon quant",
+      "domain": "common",
+      "id": "common.quant.salmon_quant",
+      "implementation_path": "bin/common__quant__salmon_quant.py",
+      "inputs": [
+        {
+          "description": "Salmon transcriptome index directory.",
+          "name": "salmon_index",
+          "required": true,
+          "type": "directory"
+        },
+        {
+          "description": "One single-end FASTQ/FASTQ.GZ file or exactly two paired-end FASTQ/FASTQ.GZ files.",
+          "name": "fastq_files",
+          "required": true,
+          "type": "fastq"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/quant/salmon_quant/meta.yml",
+      "module_path": "modules/local/common/quant/salmon_quant",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Salmon transcript quantification table.",
+          "name": "quant_sf",
+          "type": "tsv"
+        },
+        {
+          "description": "Salmon command information JSON.",
+          "name": "cmd_info_json",
+          "type": "json"
+        },
+        {
+          "description": "Salmon auxiliary information directory.",
+          "name": "aux_info",
+          "type": "directory"
+        },
+        {
+          "description": "Salmon library-parameter directory.",
+          "name": "libParams",
+          "type": "directory"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_QUANT_SALMON_QUANT",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "salmon-index"
+      ],
+      "category": "reference",
+      "checksums": {
+        "implementation_sha256": "355842a49b5cca70ebb3d5b253b3f588d5bb88286fecc127836646d05154ca19",
+        "metadata_sha256": "bbe1b3660ce27ab4699dc5adc0ab81378d06f3bbd7d24b463236e4cbe7d8b3d2"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Build a Salmon transcriptome index from a declared transcript FASTA or FASTA.GZ file.",
+      "display_name": "Salmon index",
+      "domain": "common",
+      "id": "common.reference.salmon_index",
+      "implementation_path": "bin/common__reference__salmon_index.py",
+      "inputs": [
+        {
+          "description": "Transcript FASTA or FASTA.GZ file used to build the Salmon index.",
+          "name": "transcript_fasta",
+          "required": true,
+          "type": "fasta"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/reference/salmon_index/meta.yml",
+      "module_path": "modules/local/common/reference/salmon_index",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Salmon transcriptome index directory.",
+          "name": "salmon_index",
+          "type": "directory"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_REFERENCE_SALMON_INDEX",
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"

@@ -1,0 +1,60 @@
+{
+  "aliases": [
+    "salmon-index"
+  ],
+  "category": "reference",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Build a Salmon transcriptome index from a declared transcript FASTA or FASTA.GZ file.",
+  "display_name": "Salmon index",
+  "domain": "common",
+  "id": "common.reference.salmon_index",
+  "implementation_path": "bin/common__reference__salmon_index.py",
+  "inputs": [
+    {
+      "description": "Transcript FASTA or FASTA.GZ file used to build the Salmon index.",
+      "name": "transcript_fasta",
+      "required": true,
+      "type": "fasta"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/reference/salmon_index",
+  "omics": [
+    "genomics",
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "Salmon transcriptome index directory.",
+      "name": "salmon_index",
+      "type": "directory"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_REFERENCE_SALMON_INDEX",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Synthetic-fixture unit tests for Salmon index metadata validation, registry generation, and module command contract.",
+        "path": "tests/test_common_reference_salmon_index.py",
+        "type": "unit_test"
+      },
+      {
+        "description": "Manual smoke test script that builds a Salmon index from a tiny synthetic transcript FASTA fixture.",
+        "path": "scripts/smoke_test_common_reference_salmon_index.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

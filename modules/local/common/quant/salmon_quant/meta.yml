@@ -1,0 +1,81 @@
+{
+  "aliases": [
+    "salmon-quant"
+  ],
+  "category": "quant",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Run Salmon quantification against a declared Salmon index using automatic library-type detection for single-end or paired-end FASTQ input.",
+  "display_name": "Salmon quant",
+  "domain": "common",
+  "id": "common.quant.salmon_quant",
+  "implementation_path": "bin/common__quant__salmon_quant.py",
+  "inputs": [
+    {
+      "description": "Salmon transcriptome index directory.",
+      "name": "salmon_index",
+      "required": true,
+      "type": "directory"
+    },
+    {
+      "description": "One single-end FASTQ/FASTQ.GZ file or exactly two paired-end FASTQ/FASTQ.GZ files.",
+      "name": "fastq_files",
+      "required": true,
+      "type": "fastq"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/quant/salmon_quant",
+  "omics": [
+    "genomics",
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "Salmon transcript quantification table.",
+      "name": "quant_sf",
+      "type": "tsv"
+    },
+    {
+      "description": "Salmon command information JSON.",
+      "name": "cmd_info_json",
+      "type": "json"
+    },
+    {
+      "description": "Salmon auxiliary information directory.",
+      "name": "aux_info",
+      "type": "directory"
+    },
+    {
+      "description": "Salmon library-parameter directory.",
+      "name": "libParams",
+      "type": "directory"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_QUANT_SALMON_QUANT",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Synthetic-fixture unit tests for Salmon quant metadata validation, registry generation, and restricted module command contract.",
+        "path": "tests/test_common_quant_salmon_quant.py",
+        "type": "unit_test"
+      },
+      {
+        "description": "Manual smoke test script that builds a temporary Salmon index and quantifies tiny single-end and paired-end FASTQ fixtures.",
+        "path": "scripts/smoke_test_common_quant_salmon_quant.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}
