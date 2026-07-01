@@ -1,0 +1,17 @@
+schema_version: 1
+tool: subread
+display_name: Subread FeatureCounts
+version: "2.1.1"
+local_development_image:
+  name: survom/subread:2.1.1-dev
+  purpose: local synthetic-fixture and smoke-test validation only
+upstream_reference: quay.io/biocontainers/subread:2.1.1--h577a1d6_0
+upstream_digest: quay.io/biocontainers/subread@sha256:a0f7ea960dd0f55240b330b5c4515388a493e266a7b427d6a59a39164bc14865
+survom_controlled_registry_digest:
+  reference: null
+  owner_approval_status: pending
+production_container_reference: null
+notes:
+  - Atomic step metadata keeps container null until an approved SurvOm-controlled immutable registry digest exists.
+  - The local development image is not a production container reference.
+  - Do not use latest tags, arbitrary FeatureCounts options, DESeq2, edgeR, or unrelated tools.

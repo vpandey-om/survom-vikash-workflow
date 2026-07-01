@@ -1,0 +1,83 @@
+{
+  "aliases": [
+    "featurecounts"
+  ],
+  "category": "quant",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Count paired-end fragments from one sorted BAM against exon features grouped by gene_id using FeatureCounts defaults approved for v0.1.0.",
+  "display_name": "FeatureCounts",
+  "domain": "common",
+  "id": "common.quant.featurecounts",
+  "implementation_path": "bin/common__quant__featurecounts.py",
+  "inputs": [
+    {
+      "description": "Sample identifier used for reporting and output tuple labels.",
+      "name": "sample_id",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Coordinate-sorted BAM file.",
+      "name": "sorted_bam",
+      "required": true,
+      "type": "bam"
+    },
+    {
+      "description": "BAM index file for the sorted BAM.",
+      "name": "bam_index",
+      "required": true,
+      "type": "bai"
+    },
+    {
+      "description": "GTF annotation file.",
+      "name": "annotation_gtf",
+      "required": true,
+      "type": "gtf"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/quant/featurecounts",
+  "omics": [
+    "genomics",
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "FeatureCounts gene-level count table.",
+      "name": "gene_counts_tsv",
+      "type": "tsv"
+    },
+    {
+      "description": "FeatureCounts assignment summary table.",
+      "name": "gene_counts_summary",
+      "type": "tsv"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_QUANT_FEATURECOUNTS",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Synthetic-fixture unit tests for FeatureCounts metadata validation, registry generation, and restricted module command contract.",
+        "path": "tests/test_common_quant_featurecounts.py",
+        "type": "unit_test"
+      },
+      {
+        "description": "Manual smoke test script that counts one real HISAT2-aligned chr22 BAM with the chr22 GTF annotation.",
+        "path": "scripts/smoke_test_common_quant_featurecounts.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

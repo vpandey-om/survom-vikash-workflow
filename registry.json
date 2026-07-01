@@ -4,7 +4,7 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 10,
+  "step_count": 11,
   "steps": [
     {
       "aliases": [
@@ -399,6 +399,75 @@
         }
       ],
       "process_name": "SURVOM_COMMON_QC_SEQKIT_FASTQ_STATS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "featurecounts"
+      ],
+      "category": "quant",
+      "checksums": {
+        "implementation_sha256": "1b081de2082b857df364c881a490d3fe284bb9338f9b8241c16b81b5a3ce2f22",
+        "metadata_sha256": "e69f14cc91af184f9eb1ce5d836044d7676a55405dc5b1dc739614f8278633b2"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Count paired-end fragments from one sorted BAM against exon features grouped by gene_id using FeatureCounts defaults approved for v0.1.0.",
+      "display_name": "FeatureCounts",
+      "domain": "common",
+      "id": "common.quant.featurecounts",
+      "implementation_path": "bin/common__quant__featurecounts.py",
+      "inputs": [
+        {
+          "description": "Sample identifier used for reporting and output tuple labels.",
+          "name": "sample_id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Coordinate-sorted BAM file.",
+          "name": "sorted_bam",
+          "required": true,
+          "type": "bam"
+        },
+        {
+          "description": "BAM index file for the sorted BAM.",
+          "name": "bam_index",
+          "required": true,
+          "type": "bai"
+        },
+        {
+          "description": "GTF annotation file.",
+          "name": "annotation_gtf",
+          "required": true,
+          "type": "gtf"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/quant/featurecounts/meta.yml",
+      "module_path": "modules/local/common/quant/featurecounts",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "FeatureCounts gene-level count table.",
+          "name": "gene_counts_tsv",
+          "type": "tsv"
+        },
+        {
+          "description": "FeatureCounts assignment summary table.",
+          "name": "gene_counts_summary",
+          "type": "tsv"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_QUANT_FEATURECOUNTS",
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"
