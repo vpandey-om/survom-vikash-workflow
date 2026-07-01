@@ -1,0 +1,15 @@
+schema_version: 1
+tool: fastp
+version: "1.3.6"
+immutable_upstream_build_reference: quay.io/biocontainers/fastp:1.3.6--h43da1c4_0@sha256:cbbe2402b6b6704df470d7d77dcb498eefd5bcd01f4c38be0ec69899e79ac134
+local_development_image:
+  name: survom/fastp:1.3.6-dev
+  purpose: local smoke-test validation only
+survom_controlled_registry_digest:
+  reference: null
+  owner_approval_status: pending
+production_container_reference: null
+notes:
+  - Atomic step metadata keeps container null until an approved SurvOm-controlled immutable registry digest exists.
+  - The local development image is not a production container reference.
+  - Do not use latest tags.
