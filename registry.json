@@ -4,8 +4,75 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 3,
+  "step_count": 4,
   "steps": [
+    {
+      "aliases": [
+        "fastp"
+      ],
+      "category": "preprocess",
+      "checksums": {
+        "implementation_sha256": "5f2cbd537b415d90080c5b03a1195558ed849aced673d60020e0738eacb2175e",
+        "metadata_sha256": "be1dd11d37e3b98095c6e8e568ed8f802e9becfecd03ecd038821c5f9e987c7d"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Run fastp on declared FASTQ input using one of two approved trimming profiles and emit trimmed FASTQ plus native fastp reports.",
+      "display_name": "fastp",
+      "domain": "common",
+      "id": "common.preprocess.fastp",
+      "implementation_path": "bin/common__preprocess__fastp.py",
+      "inputs": [
+        {
+          "description": "One single-end FASTQ/FASTQ.GZ file or exactly two paired-end FASTQ/FASTQ.GZ files.",
+          "name": "fastq_files",
+          "required": true,
+          "type": "fastq"
+        },
+        {
+          "description": "Approved trimming profile. Allowed values: default, illumina_pe_q20.",
+          "name": "trimming_profile",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/preprocess/fastp/meta.yml",
+      "module_path": "modules/local/common/preprocess/fastp",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Trimmed single-end FASTQ.GZ when one input read is supplied.",
+          "name": "single_trimmed_fastq",
+          "type": "fastq"
+        },
+        {
+          "description": "Trimmed paired-end FASTQ.GZ files when two input reads are supplied.",
+          "name": "paired_trimmed_fastq",
+          "type": "fastq"
+        },
+        {
+          "description": "Native fastp HTML report.",
+          "name": "fastp_html",
+          "type": "html"
+        },
+        {
+          "description": "Native fastp JSON report.",
+          "name": "fastp_json",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_PREPROCESS_FASTP",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
     {
       "aliases": [
         "fastqc"

@@ -1,0 +1,81 @@
+{
+  "aliases": [
+    "fastp"
+  ],
+  "category": "preprocess",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Run fastp on declared FASTQ input using one of two approved trimming profiles and emit trimmed FASTQ plus native fastp reports.",
+  "display_name": "fastp",
+  "domain": "common",
+  "id": "common.preprocess.fastp",
+  "implementation_path": "bin/common__preprocess__fastp.py",
+  "inputs": [
+    {
+      "description": "One single-end FASTQ/FASTQ.GZ file or exactly two paired-end FASTQ/FASTQ.GZ files.",
+      "name": "fastq_files",
+      "required": true,
+      "type": "fastq"
+    },
+    {
+      "description": "Approved trimming profile. Allowed values: default, illumina_pe_q20.",
+      "name": "trimming_profile",
+      "required": true,
+      "type": "string"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/preprocess/fastp",
+  "omics": [
+    "genomics",
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "Trimmed single-end FASTQ.GZ when one input read is supplied.",
+      "name": "single_trimmed_fastq",
+      "type": "fastq"
+    },
+    {
+      "description": "Trimmed paired-end FASTQ.GZ files when two input reads are supplied.",
+      "name": "paired_trimmed_fastq",
+      "type": "fastq"
+    },
+    {
+      "description": "Native fastp HTML report.",
+      "name": "fastp_html",
+      "type": "html"
+    },
+    {
+      "description": "Native fastp JSON report.",
+      "name": "fastp_json",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_PREPROCESS_FASTP",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Synthetic-fixture unit tests for fastp profile gating, metadata validation, and registry generation.",
+        "path": "tests/test_common_preprocess_fastp.py",
+        "type": "unit_test"
+      },
+      {
+        "description": "Manual smoke test script for paired-end default and illumina_pe_q20 profiles.",
+        "path": "scripts/smoke_test_common_preprocess_fastp.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}
