@@ -1,0 +1,19 @@
+schema_version: 1
+tool: hisat2
+display_name: HISAT2/Samtools
+version: "hisat2-2.2.2_samtools-1.23.1"
+local_development_image:
+  name: survom/hisat2:2.2.2-samtools1.23.1-dev
+  purpose: local synthetic-fixture and smoke-test validation only
+upstream_reference: quay.io/biocontainers/hisat2:2.2.2--h503566f_0
+upstream_digest: quay.io/biocontainers/hisat2@sha256:8170709af57fd3fb89eed560e6cddd3827cd97a5385565c0598d4a16c4a9a83f
+samtools_upstream_reference: quay.io/biocontainers/samtools:1.23.1--ha83d96e_0
+samtools_upstream_digest: quay.io/biocontainers/samtools@sha256:23cda33a3a42125872766df9aaf1d2db67cdb8c85314b793465188435af31ba6
+survom_controlled_registry_digest:
+  reference: null
+  owner_approval_status: pending
+production_container_reference: null
+notes:
+  - Atomic step metadata keeps container null until an approved SurvOm-controlled immutable registry digest exists.
+  - The local development image is not a production container reference.
+  - Do not use latest tags, Conda commands, arbitrary HISAT2 flags, StringTie, or unrelated tools.

@@ -4,7 +4,7 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 8,
+  "step_count": 10,
   "steps": [
     {
       "aliases": [
@@ -110,6 +110,74 @@
         }
       ],
       "process_name": "SURVOM_COMMON_AGGREGATE_TXIMPORT",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "hisat2-align"
+      ],
+      "category": "align",
+      "checksums": {
+        "implementation_sha256": "168a2a0a82e56a74c8403aa10ff948f17e3a940495b49a36f877d0db29b71396",
+        "metadata_sha256": "4f1e210d0a45982f3d1da87dd5204dd63e04dcd6092a469abccee0431882b525"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Align paired-end FASTQ reads to a HISAT2 index with --dta and emit a sorted BAM, BAM index, and HISAT2 alignment summary.",
+      "display_name": "HISAT2 align",
+      "domain": "common",
+      "id": "common.align.hisat2",
+      "implementation_path": "bin/common__align__hisat2.py",
+      "inputs": [
+        {
+          "description": "Sample identifier used for output file names.",
+          "name": "sample_id",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Exactly two paired-end FASTQ/FASTQ.GZ files.",
+          "name": "paired_fastq_files",
+          "required": true,
+          "type": "fastq"
+        },
+        {
+          "description": "HISAT2 index directory produced by common.reference.hisat2_index.",
+          "name": "hisat2_index",
+          "required": true,
+          "type": "directory"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/align/hisat2/meta.yml",
+      "module_path": "modules/local/common/align/hisat2",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Coordinate-sorted BAM file.",
+          "name": "sorted_bam",
+          "type": "bam"
+        },
+        {
+          "description": "BAM index file.",
+          "name": "sorted_bam_bai",
+          "type": "bai"
+        },
+        {
+          "description": "HISAT2 alignment summary text file.",
+          "name": "hisat2_alignment_summary",
+          "type": "txt"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_ALIGN_HISAT2",
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"
@@ -398,6 +466,68 @@
         }
       ],
       "process_name": "SURVOM_COMMON_QUANT_SALMON_QUANT",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "hisat2-index"
+      ],
+      "category": "reference",
+      "checksums": {
+        "implementation_sha256": "124be0956bd2c18833ab1cb34f18e0653a8d0b61d7ace310f8b2a0f6536ef719",
+        "metadata_sha256": "86926a1dc53307e9fcf5f3379acf7a602135694135f8ed57609e5fa8ff51d5ac"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Build a HISAT2 genome index from a genome FASTA and GTF annotation-derived splice-site and exon files.",
+      "display_name": "HISAT2 index",
+      "domain": "common",
+      "id": "common.reference.hisat2_index",
+      "implementation_path": "bin/common__reference__hisat2_index.py",
+      "inputs": [
+        {
+          "description": "Genome FASTA or FASTA.GZ file.",
+          "name": "genome_fasta",
+          "required": true,
+          "type": "fasta"
+        },
+        {
+          "description": "GTF annotation file used to derive splice-site and exon inputs for HISAT2.",
+          "name": "annotation_gtf",
+          "required": true,
+          "type": "gtf"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/reference/hisat2_index/meta.yml",
+      "module_path": "modules/local/common/reference/hisat2_index",
+      "omics": [
+        "genomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "HISAT2 index directory containing reference index shards.",
+          "name": "hisat2_index",
+          "type": "directory"
+        },
+        {
+          "description": "Splice-site file extracted from the GTF annotation.",
+          "name": "annotation_ss",
+          "type": "tsv"
+        },
+        {
+          "description": "Exon file extracted from the GTF annotation.",
+          "name": "annotation_exon",
+          "type": "tsv"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_REFERENCE_HISAT2_INDEX",
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"

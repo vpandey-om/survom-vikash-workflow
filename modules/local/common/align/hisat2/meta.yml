@@ -1,0 +1,82 @@
+{
+  "aliases": [
+    "hisat2-align"
+  ],
+  "category": "align",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Align paired-end FASTQ reads to a HISAT2 index with --dta and emit a sorted BAM, BAM index, and HISAT2 alignment summary.",
+  "display_name": "HISAT2 align",
+  "domain": "common",
+  "id": "common.align.hisat2",
+  "implementation_path": "bin/common__align__hisat2.py",
+  "inputs": [
+    {
+      "description": "Sample identifier used for output file names.",
+      "name": "sample_id",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Exactly two paired-end FASTQ/FASTQ.GZ files.",
+      "name": "paired_fastq_files",
+      "required": true,
+      "type": "fastq"
+    },
+    {
+      "description": "HISAT2 index directory produced by common.reference.hisat2_index.",
+      "name": "hisat2_index",
+      "required": true,
+      "type": "directory"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/align/hisat2",
+  "omics": [
+    "genomics",
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "Coordinate-sorted BAM file.",
+      "name": "sorted_bam",
+      "type": "bam"
+    },
+    {
+      "description": "BAM index file.",
+      "name": "sorted_bam_bai",
+      "type": "bai"
+    },
+    {
+      "description": "HISAT2 alignment summary text file.",
+      "name": "hisat2_alignment_summary",
+      "type": "txt"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_ALIGN_HISAT2",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Synthetic-fixture unit tests for HISAT2 align metadata validation, registry generation, and restricted module command contract.",
+        "path": "tests/test_common_align_hisat2.py",
+        "type": "unit_test"
+      },
+      {
+        "description": "Manual smoke test script that builds a temporary HISAT2 index and aligns one chr22 paired-end public/test sample.",
+        "path": "scripts/smoke_test_common_align_hisat2.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}
