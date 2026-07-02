@@ -1,0 +1,93 @@
+{
+  "aliases": [
+    "reactome-catalog",
+    "reactome-mapping-catalog"
+  ],
+  "category": "reference",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Create a reproducible organism-filtered compressed Parquet Reactome mapping catalog from a local immutable All Levels mapping file.",
+  "display_name": "Reactome mapping catalog",
+  "domain": "common",
+  "id": "common.reference.reactome_catalog",
+  "implementation_path": "bin/common__reference__reactome_catalog.py",
+  "inputs": [
+    {
+      "description": "Local Reactome All Levels mapping text file.",
+      "name": "mapping_file",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Explicit Reactome release version.",
+      "name": "release_version",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Organism name to retain from the mapping file.",
+      "name": "organism",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Caller-declared mapping kind metadata.",
+      "name": "mapping_kind",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Caller-declared source identifier namespace metadata.",
+      "name": "source_identifier_namespace",
+      "required": true,
+      "type": "string"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/reference/reactome_catalog",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "Organism-filtered Reactome mapping catalog in zstd-compressed Parquet format.",
+      "name": "catalog",
+      "type": "parquet"
+    },
+    {
+      "description": "YAML provenance manifest with source and derived checksums.",
+      "name": "manifest",
+      "type": "yaml"
+    },
+    {
+      "description": "JSON build diagnostics.",
+      "name": "diagnostics",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_REFERENCE_REACTOME_CATALOG",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering valid catalog creation, Parquet read-back, manifest checksums, retained organism counts, malformed input failure, empty input failure, no-organism-match failure, and required metadata parameter enforcement.",
+        "path": "scripts/smoke_test_common_reference_reactome_catalog.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

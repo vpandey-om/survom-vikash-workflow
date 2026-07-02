@@ -1,0 +1,2 @@
+ENSMUSP00000017167	R-MMU-109581	Casp8	R-MMU-109582	https://reactome.org/content/detail/R-MMU-109582	Apoptosis	IEA	Mus musculus
+ENSRNOP00000012986	R-RNO-168256	Tp53	R-RNO-168249	https://reactome.org/content/detail/R-RNO-168249	Innate Immune System	TAS	Rattus norvegicus

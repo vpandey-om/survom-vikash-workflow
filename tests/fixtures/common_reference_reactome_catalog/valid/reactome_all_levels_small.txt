@@ -1,0 +1,3 @@
+ENSP00000354587	R-HSA-109581	CASP8	R-HSA-109582	https://reactome.org/content/detail/R-HSA-109582	Apoptosis	IEA	Homo sapiens
+ENSP00000369497	R-HSA-168256	TP53	R-HSA-168249	https://reactome.org/content/detail/R-HSA-168249	Innate Immune System	TAS	Homo sapiens
+ENSMUSP00000017167	R-MMU-109581	Casp8	R-MMU-109582	https://reactome.org/content/detail/R-MMU-109582	Apoptosis	IEA	Mus musculus
