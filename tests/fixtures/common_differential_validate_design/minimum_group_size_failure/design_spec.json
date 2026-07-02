@@ -1,0 +1,8 @@
+{
+  "covariates": [],
+  "primary_factor": {
+    "name": "condition",
+    "reference_level": "control"
+  },
+  "schema_version": 1
+}

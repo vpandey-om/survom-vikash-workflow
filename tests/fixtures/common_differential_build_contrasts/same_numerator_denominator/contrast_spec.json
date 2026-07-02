@@ -1,0 +1,12 @@
+{
+  "contrasts": [
+    {
+      "denominator": "treated",
+      "id": "treated_vs_treated",
+      "numerator": "treated",
+      "type": "factor_levels",
+      "variable": "condition"
+    }
+  ],
+  "schema_version": 1
+}

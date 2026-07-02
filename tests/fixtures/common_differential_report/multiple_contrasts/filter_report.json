@@ -1,0 +1,10 @@
+{
+  "n_features_before": 5,
+  "n_features_after": 5,
+  "value_scale": "raw_count",
+  "filter_rules": {
+    "rule": "count_prevalence"
+  },
+  "resolved_min_samples": 3,
+  "warnings": []
+}

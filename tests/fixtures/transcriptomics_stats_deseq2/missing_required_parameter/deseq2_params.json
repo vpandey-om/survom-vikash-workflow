@@ -1,0 +1,6 @@
+{
+  "apply_shrinkage": false,
+  "save_rds": false,
+  "shrinkage_method": "apeglm",
+  "test_type": "wald"
+}

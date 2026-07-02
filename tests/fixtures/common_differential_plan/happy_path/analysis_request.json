@@ -1,0 +1,42 @@
+{
+  "assay_type": "bulk_rnaseq_counts",
+  "covariates": [
+    {
+      "name": "batch"
+    }
+  ],
+  "engine_parameters": {
+    "apply_shrinkage": true,
+    "p_adjust_method": "BH",
+    "save_rds": false,
+    "shrinkage_method": "apeglm",
+    "test_type": "wald"
+  },
+  "metadata_levels": {
+    "batch": [
+      "batch_2",
+      "batch_1"
+    ],
+    "condition": [
+      "treated",
+      "control"
+    ]
+  },
+  "paired": false,
+  "primary_factor": {
+    "denominator_level": "control",
+    "name": "condition",
+    "numerator_level": "treated",
+    "reference_level": "control"
+  },
+  "requested_engine": null,
+  "subject_id": null,
+  "thresholds": {
+    "absolute_log2_fold_change_min": 1.0,
+    "adjusted_p_value_max": 0.05,
+    "min_count": 10,
+    "min_samples_count": 2
+  },
+  "time_course": false,
+  "time_variable": null
+}

@@ -1,0 +1,14 @@
+{
+  "contrasts": [
+    {
+      "contrast_id": "treatment_vs_control",
+      "denominator": "control",
+      "numerator": "treatment",
+      "positive_effect_definition": "Positive effect estimate means higher abundance in treatment than control.",
+      "type": "factor_levels",
+      "variable": "condition"
+    }
+  ],
+  "schema_version": 1,
+  "status": "passed"
+}

@@ -1,0 +1,89 @@
+{
+  "aliases": [
+    "deseq2",
+    "transcriptomics-deseq2"
+  ],
+  "category": "stats",
+  "container": "survom/deseq2:3.21-dev@sha256:fd8b92a1fb52e9c082fc648a18a5c6e35fe7c691b9db26456e97e54eb7ff9633",
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Run DESeq2 Wald tests on filtered transcriptomics raw-count matrices using validated generic designs and resolved factor-level contrasts.",
+  "display_name": "DESeq2",
+  "domain": "transcriptomics",
+  "id": "transcriptomics.stats.deseq2",
+  "implementation_path": "bin/transcriptomics__stats__deseq2.R",
+  "inputs": [
+    {
+      "description": "Filtered feature-by-sample raw-count TSV matrix.",
+      "name": "filtered_feature_matrix",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Sample metadata TSV.",
+      "name": "sample_metadata",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Validated design JSON emitted by common.differential.validate_design.",
+      "name": "validated_design",
+      "required": true,
+      "type": "json"
+    },
+    {
+      "description": "Resolved contrasts JSON emitted by common.differential.build_contrasts.",
+      "name": "resolved_contrasts",
+      "required": true,
+      "type": "json"
+    },
+    {
+      "description": "Explicit DESeq2 parameter JSON.",
+      "name": "deseq2_params",
+      "required": true,
+      "type": "json"
+    }
+  ],
+  "language": "r",
+  "module_path": "modules/local/transcriptomics/stats/deseq2",
+  "omics": [
+    "transcriptomics"
+  ],
+  "outputs": [
+    {
+      "description": "Standardized DESeq2 result table.",
+      "name": "deseq2_results",
+      "type": "tsv"
+    },
+    {
+      "description": "DESeq2 diagnostics JSON.",
+      "name": "deseq2_diagnostics",
+      "type": "json"
+    },
+    {
+      "description": "Optional serialized DESeqDataSet RDS when explicitly requested.",
+      "name": "deseq2_dds_rds",
+      "type": "rds"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_TRANSCRIPTOMICS_STATS_DESEQ2",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Dockerized smoke test for DESeq2 output contracts, count validation, and required-parameter failure using survom/deseq2:3.21-dev.",
+        "path": "scripts/smoke_test_transcriptomics_stats_deseq2.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.1"
+}

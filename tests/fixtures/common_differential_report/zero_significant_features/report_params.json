@@ -1,0 +1,4 @@
+{
+  "adjusted_p_value_max": 0.01,
+  "absolute_log2_fold_change_min": 2.0
+}

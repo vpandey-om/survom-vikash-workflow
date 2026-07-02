@@ -1,0 +1,70 @@
+{
+  "aliases": [
+    "differential-build-contrasts",
+    "contrast-validation"
+  ],
+  "category": "differential",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Validate generic factor-level contrasts against a validated design and emit engine-agnostic resolved contrasts.",
+  "display_name": "Differential contrast builder",
+  "domain": "common",
+  "id": "common.differential.build_contrasts",
+  "implementation_path": "bin/common__differential__build_contrasts.py",
+  "inputs": [
+    {
+      "description": "Validated design JSON emitted by common.differential.validate_design.",
+      "name": "validated_design",
+      "required": true,
+      "type": "json"
+    },
+    {
+      "description": "Generic contrast specification JSON.",
+      "name": "contrast_spec",
+      "required": true,
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/differential/build_contrasts",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "Engine-agnostic resolved contrasts JSON.",
+      "name": "resolved_contrasts",
+      "type": "json"
+    },
+    {
+      "description": "Contrast validation report JSON.",
+      "name": "contrast_validation_report",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_DIFFERENTIAL_BUILD_CONTRASTS",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering happy-path factor-level contrast resolution and expected duplicate contrast ID failure.",
+        "path": "scripts/smoke_test_common_differential_build_contrasts.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

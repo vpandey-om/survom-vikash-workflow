@@ -1,0 +1,6 @@
+{
+  "analysis_question": "Which features differ between treatment and control?",
+  "assumptions_applied": [
+    "Zero significant features is a valid report outcome."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "assay_type": "bulk_rnaseq_counts",
+  "feature_id_column": "gene_id",
+  "n_features": 4,
+  "n_samples": 6,
+  "sample_id_column": "sample_id",
+  "sample_ids": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6"
+  ],
+  "schema_version": 1,
+  "value_profile": {
+    "integer_fraction": 1.0,
+    "missing_fraction": 0.0,
+    "suggested_value_scale": "raw_count",
+    "zero_fraction": 0.0416666667
+  }
+}

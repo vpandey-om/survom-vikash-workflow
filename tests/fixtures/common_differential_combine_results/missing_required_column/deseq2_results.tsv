@@ -1,0 +1,2 @@
+feature_id	contrast_id	effect_estimate	effect_type	p_value	adjusted_p_value	status	method
+gene_up	treatment_vs_control	3.2	log2_fold_change	0.001	0.003	tested	deseq2

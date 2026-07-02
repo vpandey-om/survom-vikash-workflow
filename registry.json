@@ -4,7 +4,7 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 12,
+  "step_count": 20,
   "steps": [
     {
       "aliases": [
@@ -178,6 +178,535 @@
         }
       ],
       "process_name": "SURVOM_COMMON_ALIGN_HISAT2",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "contrast-validation",
+        "differential-build-contrasts"
+      ],
+      "category": "differential",
+      "checksums": {
+        "implementation_sha256": "68b4186d611cbe4f101faa41ac1db771f246af3a2217ee3376204591c7604042",
+        "metadata_sha256": "4ad278e117e48c250ec9386e4149978727b64a5b4bd48e649da523ed43564238"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Validate generic factor-level contrasts against a validated design and emit engine-agnostic resolved contrasts.",
+      "display_name": "Differential contrast builder",
+      "domain": "common",
+      "id": "common.differential.build_contrasts",
+      "implementation_path": "bin/common__differential__build_contrasts.py",
+      "inputs": [
+        {
+          "description": "Validated design JSON emitted by common.differential.validate_design.",
+          "name": "validated_design",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Generic contrast specification JSON.",
+          "name": "contrast_spec",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/differential/build_contrasts/meta.yml",
+      "module_path": "modules/local/common/differential/build_contrasts",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Engine-agnostic resolved contrasts JSON.",
+          "name": "resolved_contrasts",
+          "type": "json"
+        },
+        {
+          "description": "Contrast validation report JSON.",
+          "name": "contrast_validation_report",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_DIFFERENTIAL_BUILD_CONTRASTS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "differential-combine-results",
+        "result-table-combine"
+      ],
+      "category": "differential",
+      "checksums": {
+        "implementation_sha256": "723d7493e554ba73c2f69126706807fc1871c6dd29780e8d1e8c740ad8e1ab66",
+        "metadata_sha256": "de85ba0322464b59867f4c02d634d26f4824d87af7c017c7b55a1909650a9669"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Validate and combine standardized differential-analysis result tables and method diagnostics without changing effect estimates or filtering rows.",
+      "display_name": "Differential result combiner",
+      "domain": "common",
+      "id": "common.differential.combine_results",
+      "implementation_path": "bin/common__differential__combine_results.py",
+      "inputs": [
+        {
+          "description": "One or more standardized result TSV files.",
+          "name": "result_tables",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "One diagnostics JSON file for each result table.",
+          "name": "diagnostics",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/differential/combine_results/meta.yml",
+      "module_path": "modules/local/common/differential/combine_results",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Combined standardized result TSV preserving all rows and optional columns.",
+          "name": "combined_results",
+          "type": "tsv"
+        },
+        {
+          "description": "Combined diagnostics JSON preserving method-specific diagnostics.",
+          "name": "combined_diagnostics",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_DIFFERENTIAL_COMBINE_RESULTS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "differential-filter-features",
+        "feature-filtering"
+      ],
+      "category": "differential",
+      "checksums": {
+        "implementation_sha256": "7a97596c5ce8a46dc5bfc6f3c53a90d83189bbf4b17eebd6f181a66230d253c5",
+        "metadata_sha256": "cadab8b6a7b443a5eedffe9d38f67ee2c69c4e24e30e93a93cbc4f31bf7c156c"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Filter low-information assay-agnostic feature matrices before differential modeling using explicit raw-count or continuous-data rules.",
+      "display_name": "Differential feature filtering",
+      "domain": "common",
+      "id": "common.differential.filter_features",
+      "implementation_path": "bin/common__differential__filter_features.py",
+      "inputs": [
+        {
+          "description": "Feature-by-sample TSV matrix.",
+          "name": "feature_matrix",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Feature matrix metadata JSON.",
+          "name": "feature_matrix_meta",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Explicit filter specification JSON.",
+          "name": "filter_spec",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/differential/filter_features/meta.yml",
+      "module_path": "modules/local/common/differential/filter_features",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Filtered feature-by-sample TSV matrix.",
+          "name": "filtered_feature_matrix",
+          "type": "tsv"
+        },
+        {
+          "description": "Feature filtering report JSON.",
+          "name": "filter_report",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_DIFFERENTIAL_FILTER_FEATURES",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "differential-plan",
+        "guided-differential-plan"
+      ],
+      "category": "differential",
+      "checksums": {
+        "implementation_sha256": "d31c97b03f6e031efc88aab76c472d438891d4021d581f80b78c9dcafac625fb",
+        "metadata_sha256": "e2d5ecd3834671600521544aa9311e1e818c40d2796bd4c6051de60bbb60b7bb"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Build explicit assay-agnostic guided differential-analysis planning JSON files from input inspection and a user-confirmed request.",
+      "display_name": "Differential analysis plan",
+      "domain": "common",
+      "id": "common.differential.plan",
+      "implementation_path": "bin/common__differential__plan.py",
+      "inputs": [
+        {
+          "description": "User-confirmed analysis request JSON.",
+          "name": "analysis_request",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Input inspection JSON emitted by common.inspect.inputs.",
+          "name": "input_inspection",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/differential/plan/meta.yml",
+      "module_path": "modules/local/common/differential/plan",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Feature matrix metadata JSON.",
+          "name": "feature_matrix_meta",
+          "type": "json"
+        },
+        {
+          "description": "Generic design specification JSON.",
+          "name": "design_spec",
+          "type": "json"
+        },
+        {
+          "description": "Generic contrast specification JSON.",
+          "name": "contrast_spec",
+          "type": "json"
+        },
+        {
+          "description": "Analysis plan JSON with explicit parameters and assumptions.",
+          "name": "analysis_plan",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_DIFFERENTIAL_PLAN",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "differential-qc-diagnostics",
+        "qc-diagnostics"
+      ],
+      "category": "differential",
+      "checksums": {
+        "implementation_sha256": "fd4c540b7940f75afd6645fd82989d6f9038ed10ae23c76358cb2601713c1acc",
+        "metadata_sha256": "0aa877f5127486bac40ae38d8ee4154a29571e7ac9f0f9f6248897cc014902ae"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Generate reusable QC diagnostics, deterministic SVG assets, and an HTML report from standardized differential-analysis inputs.",
+      "display_name": "Differential QC diagnostics",
+      "domain": "common",
+      "id": "common.differential.qc_diagnostics",
+      "implementation_path": "bin/common__differential__qc_diagnostics.py",
+      "inputs": [
+        {
+          "description": "Filtered feature-by-sample matrix TSV.",
+          "name": "filtered_feature_matrix",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Sample metadata TSV.",
+          "name": "sample_metadata",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Combined standardized differential result TSV.",
+          "name": "combined_results",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Combined diagnostics JSON.",
+          "name": "combined_diagnostics",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Explicit QC parameters JSON.",
+          "name": "qc_params",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/differential/qc_diagnostics/meta.yml",
+      "module_path": "modules/local/common/differential/qc_diagnostics",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "HTML QC report linking generated assets.",
+          "name": "qc_report",
+          "type": "html"
+        },
+        {
+          "description": "QC diagnostics JSON.",
+          "name": "qc_diagnostics",
+          "type": "json"
+        },
+        {
+          "description": "Directory of deterministic SVG QC plot assets.",
+          "name": "qc_assets",
+          "type": "directory"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_DIFFERENTIAL_QC_DIAGNOSTICS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "differential-report",
+        "report-differential"
+      ],
+      "category": "differential",
+      "checksums": {
+        "implementation_sha256": "078bcaef613eab239d110d7473049ad40a06acb540469e9ef28f7483347ea469",
+        "metadata_sha256": "6ae3b217f3478cc0690c984294070a3e50adb31403c9d899e78ffe443d120867"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Generate a beginner-readable differential-analysis HTML report, thresholded export tables, and a provenance manifest from standardized combined results and diagnostics.",
+      "display_name": "Differential analysis report",
+      "domain": "common",
+      "id": "common.differential.report",
+      "implementation_path": "bin/common__differential__report.py",
+      "inputs": [
+        {
+          "description": "Analysis plan JSON.",
+          "name": "analysis_plan",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Design validation report JSON.",
+          "name": "design_validation_report",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Feature filtering report JSON.",
+          "name": "filter_report",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Combined standardized differential result TSV.",
+          "name": "combined_results",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Combined diagnostics JSON.",
+          "name": "combined_diagnostics",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "QC report HTML generated by the QC diagnostics step.",
+          "name": "qc_report",
+          "required": true,
+          "type": "html"
+        },
+        {
+          "description": "Explicit report threshold parameters JSON.",
+          "name": "report_params",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/differential/report/meta.yml",
+      "module_path": "modules/local/common/differential/report",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Beginner-readable differential-analysis HTML report.",
+          "name": "differential_analysis_report",
+          "type": "html"
+        },
+        {
+          "description": "Features passing adjusted p-value and absolute effect-size thresholds.",
+          "name": "significant_features",
+          "type": "tsv"
+        },
+        {
+          "description": "Features passing adjusted p-value threshold with positive effect estimates above the effect threshold.",
+          "name": "upregulated_features",
+          "type": "tsv"
+        },
+        {
+          "description": "Features passing adjusted p-value threshold with negative effect estimates below the negative effect threshold.",
+          "name": "downregulated_features",
+          "type": "tsv"
+        },
+        {
+          "description": "Provenance manifest describing report inputs, thresholds, outputs, and warnings.",
+          "name": "analysis_manifest",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_DIFFERENTIAL_REPORT",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "design-validation",
+        "differential-validate-design"
+      ],
+      "category": "differential",
+      "checksums": {
+        "implementation_sha256": "6263a184d85a715ec42a5da5211a755a39843bebffd7b9c4b1531a6f0867d09b",
+        "metadata_sha256": "e712dbc6c1606653fc7a22cf363664baa0b543bb2bff0d9d2316339ddc48eb9c"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Validate an assay-agnostic feature matrix, sample metadata, and DesignSpec before statistical modeling.",
+      "display_name": "Differential design validation",
+      "domain": "common",
+      "id": "common.differential.validate_design",
+      "implementation_path": "bin/common__differential__validate_design.py",
+      "inputs": [
+        {
+          "description": "Feature-by-sample TSV matrix.",
+          "name": "feature_matrix",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Feature matrix metadata JSON emitted by common.differential.plan.",
+          "name": "feature_matrix_meta",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Sample metadata TSV.",
+          "name": "sample_metadata",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Generic design specification JSON emitted by common.differential.plan.",
+          "name": "design_spec",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Explicit minimum number of samples required in each primary-factor group.",
+          "name": "minimum_group_size",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/differential/validate_design/meta.yml",
+      "module_path": "modules/local/common/differential/validate_design",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Validated design JSON with resolved formula, group sizes, and design matrix rank.",
+          "name": "validated_design",
+          "type": "json"
+        },
+        {
+          "description": "Beginner-readable design validation report JSON.",
+          "name": "design_validation_report",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_DIFFERENTIAL_VALIDATE_DESIGN",
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"
@@ -714,6 +1243,86 @@
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "deseq2",
+        "transcriptomics-deseq2"
+      ],
+      "category": "stats",
+      "checksums": {
+        "implementation_sha256": "09fd7ca6f8d30720ef6413c472200c400f9f1b70b3e3fa845ca7a0af5e1f2fe5",
+        "metadata_sha256": "ea202db7904b8db20ca9be068f836f521526cb0037f6c947eea6a95d64da7b9a"
+      },
+      "container": "survom/deseq2:3.21-dev@sha256:fd8b92a1fb52e9c082fc648a18a5c6e35fe7c691b9db26456e97e54eb7ff9633",
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Run DESeq2 Wald tests on filtered transcriptomics raw-count matrices using validated generic designs and resolved factor-level contrasts.",
+      "display_name": "DESeq2",
+      "domain": "transcriptomics",
+      "id": "transcriptomics.stats.deseq2",
+      "implementation_path": "bin/transcriptomics__stats__deseq2.R",
+      "inputs": [
+        {
+          "description": "Filtered feature-by-sample raw-count TSV matrix.",
+          "name": "filtered_feature_matrix",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Sample metadata TSV.",
+          "name": "sample_metadata",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Validated design JSON emitted by common.differential.validate_design.",
+          "name": "validated_design",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Resolved contrasts JSON emitted by common.differential.build_contrasts.",
+          "name": "resolved_contrasts",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Explicit DESeq2 parameter JSON.",
+          "name": "deseq2_params",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "r",
+      "metadata_path": "modules/local/transcriptomics/stats/deseq2/meta.yml",
+      "module_path": "modules/local/transcriptomics/stats/deseq2",
+      "omics": [
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Standardized DESeq2 result table.",
+          "name": "deseq2_results",
+          "type": "tsv"
+        },
+        {
+          "description": "DESeq2 diagnostics JSON.",
+          "name": "deseq2_diagnostics",
+          "type": "json"
+        },
+        {
+          "description": "Optional serialized DESeqDataSet RDS when explicitly requested.",
+          "name": "deseq2_dds_rds",
+          "type": "rds"
+        }
+      ],
+      "process_name": "SURVOM_TRANSCRIPTOMICS_STATS_DESEQ2",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.1"
     }
   ]
 }

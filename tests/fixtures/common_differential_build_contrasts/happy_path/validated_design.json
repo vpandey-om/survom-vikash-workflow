@@ -1,0 +1,48 @@
+{
+  "covariates": [
+    {
+      "name": "batch",
+      "observed_levels": [
+        "batch_1",
+        "batch_2"
+      ],
+      "reference_level": "batch_1"
+    }
+  ],
+  "design_matrix": {
+    "columns": [
+      "Intercept",
+      "condition[treated]",
+      "batch[batch_2]"
+    ],
+    "full_rank": true,
+    "n_columns": 3,
+    "n_rows": 6,
+    "rank": 3
+  },
+  "minimum_group_size": 2,
+  "primary_factor": {
+    "group_sizes": {
+      "control": 3,
+      "treated": 3
+    },
+    "name": "condition",
+    "observed_levels": [
+      "control",
+      "treated"
+    ],
+    "reference_level": "control"
+  },
+  "resolved_formula": "~ condition + batch",
+  "sample_id_column": "sample_id",
+  "sample_ids": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6"
+  ],
+  "schema_version": 1,
+  "status": "passed"
+}
