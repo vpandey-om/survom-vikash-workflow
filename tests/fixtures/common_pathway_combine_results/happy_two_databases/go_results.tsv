@@ -1,0 +1,2 @@
+database_id	database_version	gene_set_id	gene_set_name	test_method	direction	background_count	selected_count	gene_set_size	overlap_count	overlap_resolved_identifiers	p_value	p_adjust_method	adjusted_p_value	contrast_id
+go_bp_hs	MSigDB 2026.1	GO:0000001	GO alpha	fisher_exact	both	100	10	30	6	ENSG000001,ENSG000004	0.005	bh	0.01	treatment_vs_control

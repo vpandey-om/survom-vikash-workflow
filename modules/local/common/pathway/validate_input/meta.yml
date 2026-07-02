@@ -1,0 +1,81 @@
+{
+  "aliases": [
+    "pathway-validate-input",
+    "validate-pathway-input"
+  ],
+  "category": "pathway",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Validate pathway enrichment input structure, selected-feature policy, direction requirements, and background-universe consistency before identifier resolution.",
+  "display_name": "Pathway input validation",
+  "domain": "common",
+  "id": "common.pathway.validate_input",
+  "implementation_path": "bin/common__pathway__validate_input.py",
+  "inputs": [
+    {
+      "description": "Input feature table for ORA or downstream pathway enrichment.",
+      "name": "enrichment_input",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Background universe feature table.",
+      "name": "background_universe",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Explicit pathway input validation parameters JSON.",
+      "name": "validation_params",
+      "required": true,
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/pathway/validate_input",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "Validated enrichment input table with resolved selected-feature flag.",
+      "name": "validated_enrichment_input",
+      "type": "tsv"
+    },
+    {
+      "description": "Validated unique background universe identifiers.",
+      "name": "validated_background_universe",
+      "type": "tsv"
+    },
+    {
+      "description": "Pathway input validation diagnostics and provenance report.",
+      "name": "validation_report",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_PATHWAY_VALIDATE_INPUT",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering selection-column and threshold happy paths, mutually exclusive selection policy failures, required direction-column enforcement, and selected-feature subset validation against the background universe.",
+        "path": "scripts/smoke_test_common_pathway_validate_input.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

@@ -1,0 +1,5 @@
+{
+  "test_method": "fisher_exact",
+  "p_adjust_method": "bh",
+  "direction": "both"
+}

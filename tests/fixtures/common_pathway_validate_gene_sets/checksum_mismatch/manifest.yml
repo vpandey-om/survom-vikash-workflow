@@ -1,0 +1,10 @@
+database_id: synthetic_pathway_hs
+name: Synthetic Pathway Fixture
+organism: Homo sapiens
+identifier_namespace: ensembl_gene_id
+gene_set_format: gmt
+release_version: "2026-07-fixture"
+retrieval_date: "2026-07-02"
+source_url: https://example.org/synthetic_pathway_fixture.gmt
+license_note: "Synthetic fixture for unit testing"
+checksum_sha256: 0000000000000000000000000000000000000000000000000000000000000000

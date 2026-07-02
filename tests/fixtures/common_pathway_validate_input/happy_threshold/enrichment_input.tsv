@@ -1,0 +1,4 @@
+feature_id	direction	adjusted_p_value	effect
+gene_a	up	0.001	2.1
+gene_b	down	0.400	-0.4
+gene_c	down	0.020	-1.8

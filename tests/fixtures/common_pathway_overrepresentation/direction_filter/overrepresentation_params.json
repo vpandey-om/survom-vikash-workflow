@@ -1,0 +1,5 @@
+{
+  "test_method": "hypergeometric",
+  "p_adjust_method": "bonferroni",
+  "direction": "up"
+}

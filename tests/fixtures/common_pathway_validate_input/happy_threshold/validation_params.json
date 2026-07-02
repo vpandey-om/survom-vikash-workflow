@@ -1,0 +1,7 @@
+{
+  "feature_id_column": "feature_id",
+  "background_id_column": "feature_id",
+  "adjusted_p_value_max": 0.01,
+  "effect_abs_min": 1.0,
+  "direction": "up"
+}

@@ -1,0 +1,4 @@
+feature_id	survom_pathway_selected	direction	adjusted_p_value	effect
+gene_a	true	up	0.001	2.1
+gene_b	true	down	0.020	-1.8
+gene_x	false	up	0.500	0.2

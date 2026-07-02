@@ -1,0 +1,14 @@
+{
+  "database_versions_by_database_id": {
+    "go_bp_hs": [
+      "MSigDB 2026.1"
+    ],
+    "reactome_hs": [
+      "Reactome 92"
+    ]
+  },
+  "mixed_database_versions": {},
+  "n_input_result_files": 2,
+  "n_total_result_rows": 3,
+  "status": "passed"
+}

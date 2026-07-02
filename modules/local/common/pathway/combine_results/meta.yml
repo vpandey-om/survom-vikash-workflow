@@ -1,0 +1,70 @@
+{
+  "aliases": [
+    "pathway-combine-results",
+    "combine-pathway-results"
+  ],
+  "category": "pathway",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Validate and concatenate standardized pathway enrichment result tables across databases and contrasts without cross-method or cross-version consensus scoring.",
+  "display_name": "Pathway result combiner",
+  "domain": "common",
+  "id": "common.pathway.combine_results",
+  "implementation_path": "bin/common__pathway__combine_results.py",
+  "inputs": [
+    {
+      "description": "One or more standardized pathway enrichment result TSV files from common.pathway.overrepresentation.",
+      "name": "enrichment_results",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Explicit combine parameters JSON, including required mixed database-version policy.",
+      "name": "combine_params",
+      "required": true,
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/pathway/combine_results",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "Combined standardized pathway enrichment result TSV preserving database version labels.",
+      "name": "combined_results",
+      "type": "tsv"
+    },
+    {
+      "description": "Combined diagnostics JSON with schema, input, and database-version summaries.",
+      "name": "combined_diagnostics",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_PATHWAY_COMBINE_RESULTS",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering valid multi-database concatenation, required mixed-version policy enforcement, mixed-version failure and allowed behavior, and required enrichment-result schema validation.",
+        "path": "scripts/smoke_test_common_pathway_combine_results.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

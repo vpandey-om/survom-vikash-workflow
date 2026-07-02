@@ -1,0 +1,81 @@
+{
+  "aliases": [
+    "pathway-validate-gene-sets",
+    "validate-pathway-gene-sets"
+  ],
+  "category": "pathway",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Validate a pathway gene-set database manifest and GMT file, including required provenance fields, checksum consistency, gene-set ID uniqueness, and explicit size bounds.",
+  "display_name": "Pathway gene-set validation",
+  "domain": "common",
+  "id": "common.pathway.validate_gene_sets",
+  "implementation_path": "bin/common__pathway__validate_gene_sets.py",
+  "inputs": [
+    {
+      "description": "Gene-set database provenance manifest as JSON or a flat YAML-style mapping.",
+      "name": "gene_set_manifest",
+      "required": true,
+      "type": "yaml"
+    },
+    {
+      "description": "Gene-set database file in GMT format.",
+      "name": "gene_set_file",
+      "required": true,
+      "type": "gmt"
+    },
+    {
+      "description": "Explicit gene-set validation parameters JSON, including required size bounds.",
+      "name": "validation_params",
+      "required": true,
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/pathway/validate_gene_sets",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "Validated GMT gene-set file copied after manifest and structure checks pass.",
+      "name": "validated_gene_sets",
+      "type": "gmt"
+    },
+    {
+      "description": "Normalized validated gene-set database manifest.",
+      "name": "validated_manifest",
+      "type": "json"
+    },
+    {
+      "description": "Gene-set validation diagnostics and provenance report.",
+      "name": "validation_report",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_PATHWAY_VALIDATE_GENE_SETS",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering valid GMT and manifest validation, required size parameter enforcement, required manifest field enforcement, checksum mismatch failure, duplicate gene-set ID failure, and gene-set size bound failure.",
+        "path": "scripts/smoke_test_common_pathway_validate_gene_sets.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}
