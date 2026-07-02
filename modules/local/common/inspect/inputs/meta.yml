@@ -1,0 +1,77 @@
+{
+  "aliases": [
+    "inspect-inputs",
+    "feature-matrix-inspection"
+  ],
+  "category": "inspect",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Inspect an assay-agnostic feature-by-sample TSV matrix and sample metadata TSV for guided multi-omics differential analysis without modifying inputs.",
+  "display_name": "Inspect inputs",
+  "domain": "common",
+  "id": "common.inspect.inputs",
+  "implementation_path": "bin/common__inspect__inputs.py",
+  "inputs": [
+    {
+      "description": "Feature-by-sample TSV matrix with one declared feature ID column and sample columns.",
+      "name": "feature_matrix",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Sample metadata TSV with one declared sample ID column.",
+      "name": "sample_metadata",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Name of the feature ID column in the feature matrix.",
+      "name": "feature_id_column",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Name of the sample ID column in the sample metadata.",
+      "name": "sample_id_column",
+      "required": true,
+      "type": "string"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/inspect/inputs",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "JSON-compatible inspection report with sample matching, duplicate ID, value profile, metadata type, warning, and error fields.",
+      "name": "input_inspection_json",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_INSPECT_INPUTS",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering happy-path inspection and expected sample mismatch failure with JSON assertions.",
+        "path": "scripts/smoke_test_common_inspect_inputs.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

@@ -4,7 +4,7 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 11,
+  "step_count": 12,
   "steps": [
     {
       "aliases": [
@@ -178,6 +178,74 @@
         }
       ],
       "process_name": "SURVOM_COMMON_ALIGN_HISAT2",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "feature-matrix-inspection",
+        "inspect-inputs"
+      ],
+      "category": "inspect",
+      "checksums": {
+        "implementation_sha256": "fafef38af3b265050c5379bca06a3a9375d19894db3e20438a0cf009d94876f6",
+        "metadata_sha256": "f6c6eb8462295ea8456ba7e4fc532cf93bd9ce4e6e4c06a056d899d81a0ad113"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Inspect an assay-agnostic feature-by-sample TSV matrix and sample metadata TSV for guided multi-omics differential analysis without modifying inputs.",
+      "display_name": "Inspect inputs",
+      "domain": "common",
+      "id": "common.inspect.inputs",
+      "implementation_path": "bin/common__inspect__inputs.py",
+      "inputs": [
+        {
+          "description": "Feature-by-sample TSV matrix with one declared feature ID column and sample columns.",
+          "name": "feature_matrix",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Sample metadata TSV with one declared sample ID column.",
+          "name": "sample_metadata",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Name of the feature ID column in the feature matrix.",
+          "name": "feature_id_column",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "description": "Name of the sample ID column in the sample metadata.",
+          "name": "sample_id_column",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/inspect/inputs/meta.yml",
+      "module_path": "modules/local/common/inspect/inputs",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "JSON-compatible inspection report with sample matching, duplicate ID, value profile, metadata type, warning, and error fields.",
+          "name": "input_inspection_json",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_INSPECT_INPUTS",
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"
