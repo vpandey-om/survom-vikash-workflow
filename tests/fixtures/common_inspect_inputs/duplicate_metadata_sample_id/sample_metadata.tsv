@@ -1,0 +1,7 @@
+sample_id	group	batch	participant
+S1	control	batch_1	P001
+S2	control	batch_1	P002
+S3	control	batch_2	P003
+S4	treated	batch_2	P004
+S5	treated	batch_3	P005
+S5	treated	batch_3	P006
