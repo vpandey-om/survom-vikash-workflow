@@ -1,0 +1,2 @@
+ENSP00000354587	R-HSA-109581	CASP8	R-HSA-109582	https://reactome.org/content/detail/R-HSA-109582	Apoptosis	IEA	Homo sapiens
+ENSP00000369497	R-HSA-168256	TP53	R-HSA-168249	https://reactome.org/content/detail/R-HSA-168249	Too few columns
