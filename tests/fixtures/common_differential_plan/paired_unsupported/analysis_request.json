@@ -1,0 +1,30 @@
+{
+  "assay_type": "bulk_rnaseq_counts",
+  "covariates": [],
+  "engine_parameters": {
+    "apply_shrinkage": true,
+    "p_adjust_method": "BH",
+    "save_rds": false,
+    "shrinkage_method": "apeglm",
+    "test_type": "wald"
+  },
+  "metadata_levels": {
+    "condition": [
+      "control",
+      "treated"
+    ]
+  },
+  "paired": true,
+  "primary_factor": {
+    "denominator_level": "control",
+    "name": "condition",
+    "numerator_level": "treated"
+  },
+  "requested_engine": null,
+  "subject_id": "participant",
+  "thresholds": {
+    "min_count": 10,
+    "min_samples_count": 2
+  },
+  "time_course": false
+}

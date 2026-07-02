@@ -1,0 +1,76 @@
+{
+  "aliases": [
+    "differential-filter-features",
+    "feature-filtering"
+  ],
+  "category": "differential",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Filter low-information assay-agnostic feature matrices before differential modeling using explicit raw-count or continuous-data rules.",
+  "display_name": "Differential feature filtering",
+  "domain": "common",
+  "id": "common.differential.filter_features",
+  "implementation_path": "bin/common__differential__filter_features.py",
+  "inputs": [
+    {
+      "description": "Feature-by-sample TSV matrix.",
+      "name": "feature_matrix",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Feature matrix metadata JSON.",
+      "name": "feature_matrix_meta",
+      "required": true,
+      "type": "json"
+    },
+    {
+      "description": "Explicit filter specification JSON.",
+      "name": "filter_spec",
+      "required": true,
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/differential/filter_features",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "Filtered feature-by-sample TSV matrix.",
+      "name": "filtered_feature_matrix",
+      "type": "tsv"
+    },
+    {
+      "description": "Feature filtering report JSON.",
+      "name": "filter_report",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_DIFFERENTIAL_FILTER_FEATURES",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering raw-count fraction/count equivalence and expected filter specification failures.",
+        "path": "scripts/smoke_test_common_differential_filter_features.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

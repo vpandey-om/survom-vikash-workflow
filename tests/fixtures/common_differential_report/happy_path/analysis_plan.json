@@ -1,0 +1,8 @@
+{
+  "analysis_question": "Which features differ between treatment and control?",
+  "assay_type": "transcriptomics",
+  "assumptions_applied": [
+    "Treatment is compared against control using the validated design."
+  ],
+  "primary_factor": "condition"
+}

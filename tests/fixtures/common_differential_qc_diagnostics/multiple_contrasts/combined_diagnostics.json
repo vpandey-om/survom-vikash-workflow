@@ -1,0 +1,11 @@
+{
+  "contrasts": [
+    "batch2_vs_batch1",
+    "treatment_vs_control"
+  ],
+  "methods": [
+    "deseq2"
+  ],
+  "schema_version": 1,
+  "status": "passed"
+}

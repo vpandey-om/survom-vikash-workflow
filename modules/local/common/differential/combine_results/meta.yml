@@ -1,0 +1,70 @@
+{
+  "aliases": [
+    "differential-combine-results",
+    "result-table-combine"
+  ],
+  "category": "differential",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Validate and combine standardized differential-analysis result tables and method diagnostics without changing effect estimates or filtering rows.",
+  "display_name": "Differential result combiner",
+  "domain": "common",
+  "id": "common.differential.combine_results",
+  "implementation_path": "bin/common__differential__combine_results.py",
+  "inputs": [
+    {
+      "description": "One or more standardized result TSV files.",
+      "name": "result_tables",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "One diagnostics JSON file for each result table.",
+      "name": "diagnostics",
+      "required": true,
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/differential/combine_results",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "Combined standardized result TSV preserving all rows and optional columns.",
+      "name": "combined_results",
+      "type": "tsv"
+    },
+    {
+      "description": "Combined diagnostics JSON preserving method-specific diagnostics.",
+      "name": "combined_diagnostics",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_DIFFERENTIAL_COMBINE_RESULTS",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering single DESeq2 result combination, malformed result-table failure, and duplicate key failure.",
+        "path": "scripts/smoke_test_common_differential_combine_results.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

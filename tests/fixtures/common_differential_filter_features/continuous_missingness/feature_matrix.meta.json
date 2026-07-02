@@ -1,0 +1,8 @@
+{
+  "assay_type": "proteomics_intensity",
+  "feature_id_column": "feature_id",
+  "schema_version": 1,
+  "value_profile": {
+    "suggested_value_scale": "continuous"
+  }
+}

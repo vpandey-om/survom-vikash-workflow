@@ -1,0 +1,6 @@
+{
+  "analysis_question": "Which features differ across two requested contrasts?",
+  "assumptions_applied": [
+    "Each contrast is summarized independently."
+  ]
+}

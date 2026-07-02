@@ -1,0 +1,11 @@
+{
+  "contrasts": [
+    "treatment_vs_control"
+  ],
+  "methods": [
+    "deseq2"
+  ],
+  "n_total_result_rows": 4,
+  "schema_version": 1,
+  "status": "passed"
+}

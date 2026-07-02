@@ -1,0 +1,93 @@
+{
+  "aliases": [
+    "differential-qc-diagnostics",
+    "qc-diagnostics"
+  ],
+  "category": "differential",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Generate reusable QC diagnostics, deterministic SVG assets, and an HTML report from standardized differential-analysis inputs.",
+  "display_name": "Differential QC diagnostics",
+  "domain": "common",
+  "id": "common.differential.qc_diagnostics",
+  "implementation_path": "bin/common__differential__qc_diagnostics.py",
+  "inputs": [
+    {
+      "description": "Filtered feature-by-sample matrix TSV.",
+      "name": "filtered_feature_matrix",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Sample metadata TSV.",
+      "name": "sample_metadata",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Combined standardized differential result TSV.",
+      "name": "combined_results",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Combined diagnostics JSON.",
+      "name": "combined_diagnostics",
+      "required": true,
+      "type": "json"
+    },
+    {
+      "description": "Explicit QC parameters JSON.",
+      "name": "qc_params",
+      "required": true,
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/differential/qc_diagnostics",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "HTML QC report linking generated assets.",
+      "name": "qc_report",
+      "type": "html"
+    },
+    {
+      "description": "QC diagnostics JSON.",
+      "name": "qc_diagnostics",
+      "type": "json"
+    },
+    {
+      "description": "Directory of deterministic SVG QC plot assets.",
+      "name": "qc_assets",
+      "type": "directory"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_DIFFERENTIAL_QC_DIAGNOSTICS",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering happy-path QC assets, missing base_mean warning, and multiple contrast plot generation.",
+        "path": "scripts/smoke_test_common_differential_qc_diagnostics.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

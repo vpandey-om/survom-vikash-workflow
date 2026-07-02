@@ -1,0 +1,12 @@
+{
+  "contrasts": [
+    {
+      "denominator": "control",
+      "id": "baseline_vs_control",
+      "numerator": "baseline",
+      "type": "factor_levels",
+      "variable": "condition"
+    }
+  ],
+  "schema_version": 1
+}

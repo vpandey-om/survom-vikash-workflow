@@ -1,0 +1,4 @@
+gene_id	C1	C2	C3	T1	T2	T3
+gene_up	10	12	11	100	110	105
+gene_down	100	90	95	-10	12	11
+gene_flat	50	52	49	51	50	52

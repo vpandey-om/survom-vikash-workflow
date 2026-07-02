@@ -1,0 +1,13 @@
+{
+  "covariates": [
+    {
+      "name": "batch",
+      "reference_level": "batch_1"
+    }
+  ],
+  "primary_factor": {
+    "name": "condition",
+    "reference_level": "control"
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,49 @@
+{
+  "duplicate_feature_ids": [],
+  "duplicate_matrix_sample_ids": [],
+  "duplicate_metadata_sample_ids": [],
+  "errors": [],
+  "feature_id_column": "gene_id",
+  "integer_fraction": 1.0,
+  "matrix_sample_ids": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6"
+  ],
+  "metadata_column_types": {
+    "batch": "categorical",
+    "condition": "categorical",
+    "participant": "identifier_candidate",
+    "sample_id": "identifier_candidate"
+  },
+  "metadata_columns": [
+    "sample_id",
+    "condition",
+    "batch",
+    "participant"
+  ],
+  "missing_fraction": 0.0,
+  "n_features": 4,
+  "n_samples": 6,
+  "numeric_validity": {
+    "is_numeric": true,
+    "missing_value_count": 0,
+    "non_numeric_values": [],
+    "numeric_value_count": 24,
+    "total_value_count": 24
+  },
+  "sample_id_column": "sample_id",
+  "sample_matching": {
+    "matrix_only_sample_ids": [],
+    "metadata_only_sample_ids": [],
+    "status": "matched"
+  },
+  "schema_version": 1,
+  "status": "passed",
+  "suggested_value_scale": "raw_count",
+  "warnings": [],
+  "zero_fraction": 0.0833333333
+}

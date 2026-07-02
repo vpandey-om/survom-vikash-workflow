@@ -1,0 +1,19 @@
+{
+  "DESeq2 version": "1.48.2",
+  "R version": "4.5.2",
+  "formula": "~ condition",
+  "method": "deseq2",
+  "n_features_input": 3,
+  "n_features_tested": 3,
+  "n_samples": 6,
+  "parameters_used": {
+    "apply_shrinkage": false,
+    "p_adjust_method": "BH",
+    "save_rds": false,
+    "shrinkage_method": "apeglm",
+    "test_type": "wald"
+  },
+  "schema_version": 1,
+  "status": "passed",
+  "warnings": []
+}

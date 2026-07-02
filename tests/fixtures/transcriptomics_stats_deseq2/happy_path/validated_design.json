@@ -1,0 +1,38 @@
+{
+  "covariates": [],
+  "design_matrix": {
+    "columns": [
+      "Intercept",
+      "condition[treatment]"
+    ],
+    "full_rank": true,
+    "n_columns": 2,
+    "n_rows": 6,
+    "rank": 2
+  },
+  "minimum_group_size": 3,
+  "primary_factor": {
+    "group_sizes": {
+      "control": 3,
+      "treatment": 3
+    },
+    "name": "condition",
+    "observed_levels": [
+      "control",
+      "treatment"
+    ],
+    "reference_level": "control"
+  },
+  "resolved_formula": "~ condition",
+  "sample_id_column": "sample_id",
+  "sample_ids": [
+    "C1",
+    "C2",
+    "C3",
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "schema_version": 1,
+  "status": "passed"
+}

@@ -1,0 +1,30 @@
+{
+  "covariates": [
+    {
+      "levels": [
+        "batch_1",
+        "batch_2"
+      ],
+      "name": "batch",
+      "reference_level": "batch_1"
+    }
+  ],
+  "formula": "~ condition + batch",
+  "formula_terms": [
+    "condition",
+    "batch"
+  ],
+  "paired": false,
+  "primary_factor": {
+    "levels": [
+      "control",
+      "treated"
+    ],
+    "name": "condition",
+    "reference_level": "control"
+  },
+  "schema_version": 1,
+  "subject_id": null,
+  "time_course": false,
+  "time_variable": null
+}

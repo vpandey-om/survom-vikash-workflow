@@ -1,0 +1,12 @@
+{
+  "methods": [
+    "deseq2"
+  ],
+  "n_input_result_files": 1,
+  "n_total_result_rows": 4,
+  "contrasts": [
+    "treatment_vs_control",
+    "drug_b_vs_control"
+  ],
+  "warnings": []
+}

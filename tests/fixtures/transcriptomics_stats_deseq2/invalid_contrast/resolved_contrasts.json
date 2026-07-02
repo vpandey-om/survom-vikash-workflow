@@ -1,0 +1,14 @@
+{
+  "contrasts": [
+    {
+      "contrast_id": "baseline_vs_control",
+      "denominator": "control",
+      "numerator": "baseline",
+      "positive_effect_definition": "Positive effect estimate means higher abundance in baseline than control.",
+      "type": "factor_levels",
+      "variable": "condition"
+    }
+  ],
+  "schema_version": 1,
+  "status": "passed"
+}

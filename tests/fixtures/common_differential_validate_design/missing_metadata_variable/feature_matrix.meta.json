@@ -1,0 +1,5 @@
+{
+  "feature_id_column": "gene_id",
+  "sample_id_column": "sample_id",
+  "schema_version": 1
+}

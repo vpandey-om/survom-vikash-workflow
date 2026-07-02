@@ -1,0 +1,4 @@
+feature_id	contrast_id	effect_estimate	effect_type	p_value	adjusted_p_value	base_mean	status	method	positive_effect_definition
+gene_a	treatment_vs_control	0.5	log2_fold_change	0.01	0.02	110	tested	deseq2	Positive effect estimate means higher abundance in treatment than control.
+gene_b	treatment_vs_control	1.5	log2_fold_change	0.4	0.7	75	tested	deseq2	Positive effect estimate means higher abundance in treatment than control.
+gene_c	treatment_vs_control	-0.6	log2_fold_change	0.03	0.04	50	tested	deseq2	Positive effect estimate means higher abundance in treatment than control.

@@ -1,0 +1,14 @@
+{
+  "n_features_before": 6,
+  "n_features_after": 4,
+  "assay_type": "transcriptomics",
+  "value_scale": "raw_count",
+  "filter_rules": {
+    "rule": "count_prevalence"
+  },
+  "min_count": 10,
+  "min_samples_count": null,
+  "min_samples_fraction": 0.5,
+  "resolved_min_samples": 3,
+  "warnings": []
+}

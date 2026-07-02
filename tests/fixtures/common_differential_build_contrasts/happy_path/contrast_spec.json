@@ -1,0 +1,12 @@
+{
+  "contrasts": [
+    {
+      "denominator": "control",
+      "id": "treated_vs_control",
+      "numerator": "treated",
+      "type": "factor_levels",
+      "variable": "condition"
+    }
+  ],
+  "schema_version": 1
+}

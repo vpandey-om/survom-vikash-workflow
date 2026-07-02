@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "resolved_formula": "~ condition",
+  "group_sizes": {
+    "control": 3,
+    "treatment": 3,
+    "drug_b": 3
+  },
+  "warnings": []
+}

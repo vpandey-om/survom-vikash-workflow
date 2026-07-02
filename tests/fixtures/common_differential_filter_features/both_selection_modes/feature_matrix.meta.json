@@ -1,0 +1,8 @@
+{
+  "assay_type": "bulk_rnaseq_counts",
+  "feature_id_column": "gene_id",
+  "schema_version": 1,
+  "value_profile": {
+    "suggested_value_scale": "raw_count"
+  }
+}

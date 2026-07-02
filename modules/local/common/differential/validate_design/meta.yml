@@ -1,0 +1,88 @@
+{
+  "aliases": [
+    "differential-validate-design",
+    "design-validation"
+  ],
+  "category": "differential",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Validate an assay-agnostic feature matrix, sample metadata, and DesignSpec before statistical modeling.",
+  "display_name": "Differential design validation",
+  "domain": "common",
+  "id": "common.differential.validate_design",
+  "implementation_path": "bin/common__differential__validate_design.py",
+  "inputs": [
+    {
+      "description": "Feature-by-sample TSV matrix.",
+      "name": "feature_matrix",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Feature matrix metadata JSON emitted by common.differential.plan.",
+      "name": "feature_matrix_meta",
+      "required": true,
+      "type": "json"
+    },
+    {
+      "description": "Sample metadata TSV.",
+      "name": "sample_metadata",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Generic design specification JSON emitted by common.differential.plan.",
+      "name": "design_spec",
+      "required": true,
+      "type": "json"
+    },
+    {
+      "description": "Explicit minimum number of samples required in each primary-factor group.",
+      "name": "minimum_group_size",
+      "required": true,
+      "type": "integer"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/differential/validate_design",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "Validated design JSON with resolved formula, group sizes, and design matrix rank.",
+      "name": "validated_design",
+      "type": "json"
+    },
+    {
+      "description": "Beginner-readable design validation report JSON.",
+      "name": "design_validation_report",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_DIFFERENTIAL_VALIDATE_DESIGN",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering happy-path design validation and expected rank-deficient/confounded design failure.",
+        "path": "scripts/smoke_test_common_differential_validate_design.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

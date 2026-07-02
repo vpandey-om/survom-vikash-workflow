@@ -1,0 +1,6 @@
+{
+  "min_count": 10,
+  "min_samples_count": 3,
+  "min_samples_fraction": 0.5,
+  "schema_version": 1
+}
