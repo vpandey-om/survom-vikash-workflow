@@ -4,7 +4,7 @@
   "source": {
     "metadata_root": "modules/local"
   },
-  "step_count": 21,
+  "step_count": 27,
   "steps": [
     {
       "aliases": [
@@ -775,6 +775,447 @@
         }
       ],
       "process_name": "SURVOM_COMMON_INSPECT_INPUTS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "combine-pathway-results",
+        "pathway-combine-results"
+      ],
+      "category": "pathway",
+      "checksums": {
+        "implementation_sha256": "81145a0a6fe935885dfcd77c9ca46ea43c9d9e5b0d514cb973b122299846d5ad",
+        "metadata_sha256": "7a145dc7306c823d4a1aaa6e8669bdb21c0a14e4f793c5c788aa8d6a4ca0e4e6"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Validate and concatenate standardized pathway enrichment result tables across databases and contrasts without cross-method or cross-version consensus scoring.",
+      "display_name": "Pathway result combiner",
+      "domain": "common",
+      "id": "common.pathway.combine_results",
+      "implementation_path": "bin/common__pathway__combine_results.py",
+      "inputs": [
+        {
+          "description": "One or more standardized pathway enrichment result TSV files from common.pathway.overrepresentation.",
+          "name": "enrichment_results",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Explicit combine parameters JSON, including required mixed database-version policy.",
+          "name": "combine_params",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/pathway/combine_results/meta.yml",
+      "module_path": "modules/local/common/pathway/combine_results",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Combined standardized pathway enrichment result TSV preserving database version labels.",
+          "name": "combined_results",
+          "type": "tsv"
+        },
+        {
+          "description": "Combined diagnostics JSON with schema, input, and database-version summaries.",
+          "name": "combined_diagnostics",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_PATHWAY_COMBINE_RESULTS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "pathway-ora",
+        "pathway-overrepresentation"
+      ],
+      "category": "pathway",
+      "checksums": {
+        "implementation_sha256": "62ce5b50d156764f9e2374dddfc606f5d62df06c00cac05c9a080faccc77198e",
+        "metadata_sha256": "ce6bd803f577feb45b194313b48b7e56482e39ca27bbd5cffae3d8fcfe12078b"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Run over-representation analysis of unique resolved selected identifiers against a resolved background universe and validated GMT gene sets.",
+      "display_name": "Pathway over-representation analysis",
+      "domain": "common",
+      "id": "common.pathway.overrepresentation",
+      "implementation_path": "bin/common__pathway__overrepresentation.py",
+      "inputs": [
+        {
+          "description": "Resolved enrichment input TSV from common.pathway.resolve_identifiers.",
+          "name": "resolved_identifiers",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Resolved background universe TSV from common.pathway.resolve_identifiers.",
+          "name": "resolved_background_universe",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Validated gene-set database GMT from common.pathway.validate_gene_sets.",
+          "name": "validated_gene_sets",
+          "required": true,
+          "type": "gmt"
+        },
+        {
+          "description": "Validated gene-set database manifest from common.pathway.validate_gene_sets.",
+          "name": "validated_manifest",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Explicit ORA parameters JSON including required test method, p-adjust method, and direction.",
+          "name": "overrepresentation_params",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/pathway/overrepresentation/meta.yml",
+      "module_path": "modules/local/common/pathway/overrepresentation",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Standardized pathway enrichment result table.",
+          "name": "enrichment_results",
+          "type": "tsv"
+        },
+        {
+          "description": "ORA diagnostics, parameters, and provenance report.",
+          "name": "overrepresentation_report",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_PATHWAY_OVERREPRESENTATION",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "pathway-enrichment-qc",
+        "pathway-qc-diagnostics"
+      ],
+      "category": "pathway",
+      "checksums": {
+        "implementation_sha256": "d8086bf2aee991eeca3de9274af3c2172b4a839276b78cc12163444dbbf90ae5",
+        "metadata_sha256": "24dbddd00d210542ec0cf0e665e92ad06c9e2aed74b3b4c1b69b93683d784b0a"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Generate pathway enrichment QC diagnostics from combined pathway results, mapping reports, and gene-set validation reports using explicit user-supplied significance criteria.",
+      "display_name": "Pathway QC diagnostics",
+      "domain": "common",
+      "id": "common.pathway.qc_diagnostics",
+      "implementation_path": "bin/common__pathway__qc_diagnostics.py",
+      "inputs": [
+        {
+          "description": "Combined pathway enrichment result TSV from common.pathway.combine_results.",
+          "name": "combined_results",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Combined pathway diagnostics JSON from common.pathway.combine_results.",
+          "name": "combined_diagnostics",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "One or more identifier-resolution reports from common.pathway.resolve_identifiers.",
+          "name": "resolution_reports",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "One or more gene-set validation reports from common.pathway.validate_gene_sets.",
+          "name": "gene_set_validation_reports",
+          "required": true,
+          "type": "json"
+        },
+        {
+          "description": "Explicit QC parameters JSON, including required significance metric and threshold.",
+          "name": "qc_params",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/pathway/qc_diagnostics/meta.yml",
+      "module_path": "modules/local/common/pathway/qc_diagnostics",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Pathway QC diagnostics JSON.",
+          "name": "qc_diagnostics",
+          "type": "json"
+        },
+        {
+          "description": "Grouped pathway QC summary TSV.",
+          "name": "qc_summary",
+          "type": "tsv"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_PATHWAY_QC_DIAGNOSTICS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "pathway-resolve-identifiers",
+        "resolve-pathway-identifiers"
+      ],
+      "category": "pathway",
+      "checksums": {
+        "implementation_sha256": "54a61efa41b28b5f178e4124a0e2d769f5ed37c6b8f54535aac5405706ddd5e6",
+        "metadata_sha256": "4c060dd0d49cba9c4ca8437f73c9973f3e358bb9efdda63f442e6163afbd2f9c"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Resolve pathway enrichment input identifiers and background-universe identifiers into a shared gene-set database namespace with explicit unmapped, ambiguous, and duplicate handling policies.",
+      "display_name": "Pathway identifier resolver",
+      "domain": "common",
+      "id": "common.pathway.resolve_identifiers",
+      "implementation_path": "bin/common__pathway__resolve_identifiers.py",
+      "inputs": [
+        {
+          "description": "Validated pathway enrichment input TSV from common.pathway.validate_input.",
+          "name": "validated_enrichment_input",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Validated background universe TSV from common.pathway.validate_input.",
+          "name": "validated_background_universe",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Identifier mapping TSV from source identifiers to the gene-set database namespace.",
+          "name": "identifier_mapping",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Explicit identifier-resolution parameters and required handling policies JSON.",
+          "name": "resolution_params",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/pathway/resolve_identifiers/meta.yml",
+      "module_path": "modules/local/common/pathway/resolve_identifiers",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Validated enrichment input rows resolved into the gene-set database namespace.",
+          "name": "resolved_identifiers",
+          "type": "tsv"
+        },
+        {
+          "description": "Validated background-universe rows resolved into the gene-set database namespace.",
+          "name": "resolved_background_universe",
+          "type": "tsv"
+        },
+        {
+          "description": "Identifier-resolution diagnostics, policy choices, and provenance report.",
+          "name": "resolution_report",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_PATHWAY_RESOLVE_IDENTIFIERS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "pathway-validate-gene-sets",
+        "validate-pathway-gene-sets"
+      ],
+      "category": "pathway",
+      "checksums": {
+        "implementation_sha256": "392894efc62064da6c34646ccd5a64ee899edcc0abc403bb13820c12078e3e6c",
+        "metadata_sha256": "791752302eec53b7ef2f281aa474c3ef30c8801e454efbb1cab21d8936e95874"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Validate a pathway gene-set database manifest and GMT file, including required provenance fields, checksum consistency, gene-set ID uniqueness, and explicit size bounds.",
+      "display_name": "Pathway gene-set validation",
+      "domain": "common",
+      "id": "common.pathway.validate_gene_sets",
+      "implementation_path": "bin/common__pathway__validate_gene_sets.py",
+      "inputs": [
+        {
+          "description": "Gene-set database provenance manifest as JSON or a flat YAML-style mapping.",
+          "name": "gene_set_manifest",
+          "required": true,
+          "type": "yaml"
+        },
+        {
+          "description": "Gene-set database file in GMT format.",
+          "name": "gene_set_file",
+          "required": true,
+          "type": "gmt"
+        },
+        {
+          "description": "Explicit gene-set validation parameters JSON, including required size bounds.",
+          "name": "validation_params",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/pathway/validate_gene_sets/meta.yml",
+      "module_path": "modules/local/common/pathway/validate_gene_sets",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Validated GMT gene-set file copied after manifest and structure checks pass.",
+          "name": "validated_gene_sets",
+          "type": "gmt"
+        },
+        {
+          "description": "Normalized validated gene-set database manifest.",
+          "name": "validated_manifest",
+          "type": "json"
+        },
+        {
+          "description": "Gene-set validation diagnostics and provenance report.",
+          "name": "validation_report",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_PATHWAY_VALIDATE_GENE_SETS",
+      "status": "experimental",
+      "validation_tier": "unit_tested",
+      "version": "0.1.0"
+    },
+    {
+      "aliases": [
+        "pathway-validate-input",
+        "validate-pathway-input"
+      ],
+      "category": "pathway",
+      "checksums": {
+        "implementation_sha256": "5dc6a1c6106bfb08045322a1f0e4892ce20739971c549bcb0d802919e8598106",
+        "metadata_sha256": "dc65a9708934f0feeba0f002e04bc71602e90e4012cf0f20773d5e3fa8664498"
+      },
+      "container": null,
+      "deprecation": {
+        "deprecated_by": null,
+        "reason": null
+      },
+      "description": "Validate pathway enrichment input structure, selected-feature policy, direction requirements, and background-universe consistency before identifier resolution.",
+      "display_name": "Pathway input validation",
+      "domain": "common",
+      "id": "common.pathway.validate_input",
+      "implementation_path": "bin/common__pathway__validate_input.py",
+      "inputs": [
+        {
+          "description": "Input feature table for ORA or downstream pathway enrichment.",
+          "name": "enrichment_input",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Background universe feature table.",
+          "name": "background_universe",
+          "required": true,
+          "type": "tsv"
+        },
+        {
+          "description": "Explicit pathway input validation parameters JSON.",
+          "name": "validation_params",
+          "required": true,
+          "type": "json"
+        }
+      ],
+      "language": "python",
+      "metadata_path": "modules/local/common/pathway/validate_input/meta.yml",
+      "module_path": "modules/local/common/pathway/validate_input",
+      "omics": [
+        "genomics",
+        "metabolomics",
+        "multiomics",
+        "proteomics",
+        "transcriptomics"
+      ],
+      "outputs": [
+        {
+          "description": "Validated enrichment input table with resolved selected-feature flag.",
+          "name": "validated_enrichment_input",
+          "type": "tsv"
+        },
+        {
+          "description": "Validated unique background universe identifiers.",
+          "name": "validated_background_universe",
+          "type": "tsv"
+        },
+        {
+          "description": "Pathway input validation diagnostics and provenance report.",
+          "name": "validation_report",
+          "type": "json"
+        }
+      ],
+      "process_name": "SURVOM_COMMON_PATHWAY_VALIDATE_INPUT",
       "status": "experimental",
       "validation_tier": "unit_tested",
       "version": "0.1.0"

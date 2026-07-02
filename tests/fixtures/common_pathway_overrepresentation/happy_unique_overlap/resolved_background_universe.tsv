@@ -1,0 +1,5 @@
+feature_id	source_identifier	resolved_identifier	resolution_status
+gene_a	gene_a	ENSG000001	resolved
+gene_b	gene_b	ENSG000002	resolved
+gene_c	gene_c	ENSG000003	resolved
+gene_d	gene_d	ENSG000004	resolved

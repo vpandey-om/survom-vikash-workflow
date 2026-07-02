@@ -1,0 +1,4 @@
+{
+  "test_method": "fisher_exact",
+  "direction": "both"
+}

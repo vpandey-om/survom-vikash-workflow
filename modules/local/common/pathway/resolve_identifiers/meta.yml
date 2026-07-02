@@ -1,0 +1,87 @@
+{
+  "aliases": [
+    "pathway-resolve-identifiers",
+    "resolve-pathway-identifiers"
+  ],
+  "category": "pathway",
+  "container": null,
+  "deprecation": {
+    "deprecated_by": null,
+    "reason": null
+  },
+  "description": "Resolve pathway enrichment input identifiers and background-universe identifiers into a shared gene-set database namespace with explicit unmapped, ambiguous, and duplicate handling policies.",
+  "display_name": "Pathway identifier resolver",
+  "domain": "common",
+  "id": "common.pathway.resolve_identifiers",
+  "implementation_path": "bin/common__pathway__resolve_identifiers.py",
+  "inputs": [
+    {
+      "description": "Validated pathway enrichment input TSV from common.pathway.validate_input.",
+      "name": "validated_enrichment_input",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Validated background universe TSV from common.pathway.validate_input.",
+      "name": "validated_background_universe",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Identifier mapping TSV from source identifiers to the gene-set database namespace.",
+      "name": "identifier_mapping",
+      "required": true,
+      "type": "tsv"
+    },
+    {
+      "description": "Explicit identifier-resolution parameters and required handling policies JSON.",
+      "name": "resolution_params",
+      "required": true,
+      "type": "json"
+    }
+  ],
+  "language": "python",
+  "module_path": "modules/local/common/pathway/resolve_identifiers",
+  "omics": [
+    "genomics",
+    "transcriptomics",
+    "proteomics",
+    "metabolomics",
+    "multiomics"
+  ],
+  "outputs": [
+    {
+      "description": "Validated enrichment input rows resolved into the gene-set database namespace.",
+      "name": "resolved_identifiers",
+      "type": "tsv"
+    },
+    {
+      "description": "Validated background-universe rows resolved into the gene-set database namespace.",
+      "name": "resolved_background_universe",
+      "type": "tsv"
+    },
+    {
+      "description": "Identifier-resolution diagnostics, policy choices, and provenance report.",
+      "name": "resolution_report",
+      "type": "json"
+    }
+  ],
+  "owners": [
+    "vikash"
+  ],
+  "process_name": "SURVOM_COMMON_PATHWAY_RESOLVE_IDENTIFIERS",
+  "reviewers": [],
+  "schema_version": 1,
+  "status": "experimental",
+  "validation": {
+    "evidence": [
+      {
+        "description": "Direct CLI smoke test covering retained ambiguous mappings, separate background resolution, missing required policy failure, ambiguous fail policy, unmapped fail policy, and duplicate resolved identifier failure.",
+        "path": "scripts/smoke_test_common_pathway_resolve_identifiers.sh",
+        "type": "smoke_test"
+      }
+    ],
+    "tier": "unit_tested"
+  },
+  "version": "0.1.0"
+}

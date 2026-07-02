@@ -1,0 +1,4 @@
+feature_id	effect	direction	survom_pathway_selected	source_identifier	resolved_identifier	resolution_status
+gene_a	2.0	up	true	gene_a	ENSG000001	resolved
+gene_b	-1.4	down	true	gene_b	ENSG000002	resolved
+gene_c	1.2	up	true	gene_c	ENSG000003	resolved

@@ -1,0 +1,15 @@
+{
+  "resolved_background_universe": {
+    "n_input_rows": 110,
+    "n_resolved_rows": 100,
+    "n_unique_resolved_identifiers": 100,
+    "n_unmapped_source_identifiers": 10
+  },
+  "resolved_identifiers": {
+    "n_input_rows": 12,
+    "n_resolved_rows": 10,
+    "n_unique_resolved_identifiers": 10,
+    "n_ambiguous_source_identifiers": 1
+  },
+  "status": "passed"
+}

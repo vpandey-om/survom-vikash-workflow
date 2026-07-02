@@ -1,0 +1,12 @@
+{
+  "gene_sets": {
+    "max_observed_gene_set_size": 20,
+    "min_observed_gene_set_size": 15,
+    "n_gene_sets": 2
+  },
+  "manifest": {
+    "checksum_sha256": "a740771983f844384d3e18837d3b8409bc273559509db2a1879b631c799c64eb",
+    "database_id": "reactome_hs",
+    "release_version": "Reactome 92"
+  }
+}

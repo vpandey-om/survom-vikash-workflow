@@ -1,0 +1,3 @@
+feature_id	selected	adjusted_p_value	effect
+gene_a	true	0.001	2.1
+gene_b	false	0.400	-0.4
